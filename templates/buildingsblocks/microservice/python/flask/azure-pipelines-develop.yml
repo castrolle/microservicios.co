@@ -1,0 +1,17 @@
+# https://aka.ms/yaml
+
+trigger:
+- develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'devops-connection-string-to-registry-develop'
+    repository: 'app-book-service-api'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfile'
+    buildContext: '.'
+    tags: '$(build.buildNumber)-develop'

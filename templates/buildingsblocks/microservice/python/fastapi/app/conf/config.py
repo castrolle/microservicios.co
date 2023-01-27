@@ -1,0 +1,11 @@
+import os
+
+BASE_PATH = '/v1.0'
+APP = 'app-book-service-api'
+APP_VERSION = os.environ.setdefault("APP_VERSION","develop")
+
+SERVICE_APPSERVICETESTAPI_URL = os.environ.setdefault("SERVICE_APPSERVICETESTAPI_URL","https://z1yqd.wiremockapi.cloud")
+SERVICE_APPSERVICETESTAPI_PATH_BOOK1 = "/book/1"
+SERVICE_APPSERVICETESTAPI_PATH_BOOK2 = "/book/2"
+SERVICE_APPSERVICETESTAPI_PATH_BOOK3 = "/book/3"
+SERVICE_APPSERVICETESTAPI_PATH_BOOK4 = "/book"

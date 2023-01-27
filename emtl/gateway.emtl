@@ -1,0 +1,1704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="gateway" nsURI="com::microservice::acceleo::module::generator::main::gateway" startHeaderPosition="30" endHeaderPosition="141">
+    <input>
+      <takesTypesFrom href="http://com/microservice#/"/>
+    </input>
+    <imports href="util.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateGateway" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;"/>
+      <body xsi:type="mtl:IfBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+            <body xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="util.emtl#/0/getTemplate"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:VariableExp" name="fileName" referredVariable="/0/generateGateway/%.1/%.1/fileName">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+            <fileUrl xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="util.emtl#/0/getFileName"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                      <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="templates/buildingsblocks/api-gateway/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:VariableExp" name="fileName" referredVariable="/0/generateGateway/%.1/%.1/fileName">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </fileUrl>
+          </body>
+          <loopVariable name="fileName">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </loopVariable>
+          <iterSet xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/T"/>
+            <definition href="util.emtl#/0/getTemplateFiles"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="templates/buildingsblocks/api-gateway/">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="FROM openjdk:11.0-jdk-slim-stretch&#xD;&#xA;ARG DEPENDENCY=target&#xD;&#xA;COPY ${DEPENDENCY}/"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="-1.0.0-SNAPSHOT.jar /home/"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="-1.0.0-SNAPSHOT.jar&#xD;&#xA;RUN echo $ENVIROMENTS&#xD;&#xA;ENTRYPOINT   "/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" &quot;java&quot;,&quot;-jar&quot;,&quot;-Dspring.profiles.active=release&quot;,&quot;/home/"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="-1.0.0-SNAPSHOT.jar&quot; "/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" &#xD;&#xA;"/>
+          <fileUrl xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="util.emtl#/0/getAppName"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                      <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Dockerfile">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+          </fileUrl>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="server:&#xD;&#xA;  port: "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/port"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;  servlet:&#xD;&#xA;    context-path: /v1.0/&#xD;&#xA;spring:&#xD;&#xA;  application:&#xD;&#xA;    name: "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;    version: develop&#xD;&#xA;    username: admin&#xD;&#xA;    password: 12345&#xD;&#xA;  sleuth:&#xD;&#xA;     sampler:&#xD;&#xA;        probability: 1&#xD;&#xA;zuul:&#xD;&#xA;   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin&#xD;&#xA;   prefix: /api&#xD;&#xA;   host:&#xD;&#xA;     connect-timeout-millis: 100000&#xD;&#xA;     socket-timeout-millis: 100000&#xD;&#xA;   routes:&#xD;&#xA;     "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=":&#xD;&#xA;        path: /"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/**&#xD;&#xA;        url: http://localhost:"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/port"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/v1.0&#xD;&#xA;"/>
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:ForBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+              <body xsi:type="mtl:QueryInvocation">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <definition href="util.emtl#/0/getSimpleAppName"/>
+                <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </argument>
+                <argument xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="mic" referredVariable="/0/generateGateway/%.1/%.5/%.11/%/mic">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Mics/name"/>
+                </argument>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=":&#xD;&#xA;        path: ${"/>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="mtl:QueryInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="util.emtl#/0/getSnakeCase"/>
+                  <argument xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="mic" referredVariable="/0/generateGateway/%.1/%.5/%.11/%/mic">
+                      <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Mics/name"/>
+                  </argument>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toUpperCase"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_PATH:/"/>
+              <body xsi:type="mtl:QueryInvocation">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <definition href="util.emtl#/0/getSimpleAppName"/>
+                <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </argument>
+                <argument xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="mic" referredVariable="/0/generateGateway/%.1/%.5/%.11/%/mic">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Mics/name"/>
+                </argument>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/**} #"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="mic" referredVariable="/0/generateGateway/%.1/%.5/%.11/%/mic">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Mics/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;        url: ${"/>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="mtl:QueryInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="util.emtl#/0/getSnakeCase"/>
+                  <argument xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="mic" referredVariable="/0/generateGateway/%.1/%.5/%.11/%/mic">
+                      <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Mics/name"/>
+                  </argument>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toUpperCase"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_URL:"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="mic" referredVariable="/0/generateGateway/%.1/%.5/%.11/%/mic">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Mics/urlBase"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}&#xD;&#xA;"/>
+              <loopVariable name="mic">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+              </loopVariable>
+              <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/30/Sequence(Mics)" referredOperation="/1/ecore_EObject_Class/eAllContents">
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+                </source>
+                <argument xsi:type="ocl.ecore:TypeExp" eType="/32/Mics">
+                  <referredType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+                </argument>
+              </iterSet>
+            </body>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp" eType="/30/OrderedSet(Mics)">
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/mics"/>
+              </source>
+              <argument xsi:type="ocl.ecore:NullLiteralExp">
+                <eType xsi:type="ocl.ecore:VoidType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclVoid"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/%3C%3E.2"/>
+            </ifExpr>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="policy:&#xD;&#xA;  ratelimits:&#xD;&#xA;    -  &#xD;&#xA;      name: "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;      limit: 1000 #optional - request number limit per type&#xD;&#xA;      quota: 10 #optional - request number limit per refresh interval window&#xD;&#xA;      refresh-interval: 60 #optional - request time limit per refresh interval window (in seconds)&#xD;&#xA;      type: user  #origin user&#xD;&#xA;jwt:&#xD;&#xA;  token:&#xD;&#xA;    timeOut: 280000000&#xD;&#xA;    secret: tokensecret   &#xD;&#xA;google:&#xD;&#xA;  analytics: UA-XXXXXX-1&#xD;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="  clientId: "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="f" referredVariable="/0/generateGateway/%.1/%.5/%.15/f">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Front"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Front/googleClientID"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="  &#xD;&#xA;"/>
+            <loopVariable name="f">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Front"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/30/Sequence(Front)" referredOperation="/1/ecore_EObject_Class/eAllContents">
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/32/Front">
+                <referredType xsi:type="ecore:EClass" href="http://com/microservice#//Front"/>
+              </argument>
+            </iterSet>
+          </body>
+          <fileUrl xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="util.emtl#/0/getAppName"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                      <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/src/main/resources/application.yml">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+          </fileUrl>
+          <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </charset>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;"/>
+        <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;&#xD;&#xA;&#x9;xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#xD;&#xA;&#x9;xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;>&#xD;&#xA;&#x9;&lt;modelVersion>4.0.0&lt;/modelVersion>&#xD;&#xA;&#x9;&lt;groupId>"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/groupId>&#xD;&#xA;&#x9;&lt;artifactId>"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/artifactId>&#xD;&#xA;&#x9;&lt;version>1.0.0-SNAPSHOT&lt;/version>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&lt;parent>&#xD;&#xA;&#x9;&#x9;&lt;groupId>org.springframework.boot&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&lt;artifactId>spring-boot-starter-parent&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&lt;version>2.0.5.RELEASE&lt;/version>&#xD;&#xA;&#x9;&#x9;&lt;relativePath /> &lt;!-- lookup parent from repository -->&#xD;&#xA;&#x9;&lt;/parent>&#xD;&#xA;&#xD;&#xA;&#x9;&lt;properties>&#xD;&#xA;&#x9;&#x9;&lt;project.build.sourceEncoding>UTF-8&lt;/project.build.sourceEncoding>&#xD;&#xA;&#x9;&#x9;&lt;project.reporting.outputEncoding>UTF-8&lt;/project.reporting.outputEncoding>&#xD;&#xA;&#x9;&#x9;&lt;brave.opentracing.version>5.7.0&lt;/brave.opentracing.version>&#xD;&#xA;&#x9;&#x9;&lt;spring-cloud.version>Finchley.SR1&lt;/spring-cloud.version>&#xD;&#xA;&#x9;&#x9;&lt;maven.compiler.source>1.8&lt;/maven.compiler.source>&#xD;&#xA;&#x9;&#x9;&lt;maven.compiler.target>1.8&lt;/maven.compiler.target>&#xD;&#xA;&#x9;&lt;/properties>&#xD;&#xA;&#xD;&#xA;&#x9;&lt;dependencies>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.springframework.boot&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>spring-boot-starter-web&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.springframework&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>spring-core&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;version>5.2.0.RELEASE&lt;/version>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.glassfish.jaxb&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>jaxb-runtime&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;version>2.3.2&lt;/version>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.springframework.cloud&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>spring-cloud-starter-netflix-zuul&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.springframework.boot&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>spring-boot-starter-security&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.apache.httpcomponents&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>httpclient&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>io.jsonwebtoken&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>jjwt&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;version>0.9.1&lt;/version>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.springframework.security&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>spring-security-core&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;scope>compile&lt;/scope>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.modelmapper&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>modelmapper&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;version>1.1.0&lt;/version>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>com.google.code.gson&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>gson&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>org.projectlombok&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>lombok&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;optional>true&lt;/optional>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client-gson -->&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>com.google.api-client&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>google-api-client-gson&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;version>1.30.9&lt;/version>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&lt;!-- https://mvnrepository.com/artifact/com.google.appengine/appengine-api-1.0-sdk -->&#xD;&#xA;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;groupId>com.google.appengine&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;artifactId>appengine-api-1.0-sdk&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;version>1.3.1&lt;/version>&#xD;&#xA;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#xD;&#xA;&#x9;&lt;/dependencies>&#xD;&#xA;&#xD;&#xA;&#x9;&lt;profiles>&#xD;&#xA;&#x9;&#x9;&lt;profile>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;id>release&lt;/id>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;dependencies>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;groupId>org.springframework.boot&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;artifactId>spring-boot-starter-web&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;exclusions>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;exclusion>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;groupId>org.springframework.boot&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;artifactId>spring-boot-starter-logging&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;/exclusion>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;/exclusions>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/dependencies>&#xD;&#xA;&#x9;&#x9;&lt;/profile>&#xD;&#xA;&#x9;&lt;/profiles>&#xD;&#xA;&#xD;&#xA;&#x9;&lt;dependencyManagement>&#xD;&#xA;&#x9;&#x9;&lt;dependencies>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;dependency>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;groupId>org.springframework.cloud&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;artifactId>spring-cloud-dependencies&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;version>${spring-cloud.version}&lt;/version>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;type>pom&lt;/type>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;scope>import&lt;/scope>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/dependency>&#xD;&#xA;&#x9;&#x9;&lt;/dependencies>&#xD;&#xA;&#x9;&lt;/dependencyManagement>&#xD;&#xA;&#xD;&#xA;&#x9;&lt;build>&#xD;&#xA;&#x9;&#x9;&lt;plugins>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;plugin>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;groupId>org.springframework.boot&lt;/groupId>&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;artifactId>spring-boot-maven-plugin&lt;/artifactId>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/plugin>&#xD;&#xA;&#x9;&#x9;&lt;/plugins>&#xD;&#xA;&#x9;&lt;/build>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;/project>&#xD;&#xA;"/>
+          <fileUrl xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="util.emtl#/0/getAppName"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                      <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Gateway/name"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="pom.xml">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+          </fileUrl>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://com/microservice#//Gateway"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateGateway/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Microservice/gateway"/>
+          </source>
+          <argument xsi:type="ocl.ecore:NullLiteralExp">
+            <eType xsi:type="ocl.ecore:VoidType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclVoid"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/%3C%3E"/>
+        </ifExpr>
+      </body>
+      <parameter name="aGenerator">
+        <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="eAllContents">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateGateway">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateGateway"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aGenerator">
+          <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getSimpleAppName">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="util.emtl#/0/getSimpleAppName"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getAppName">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="util.emtl#/0/getAppName"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getSnakeCase">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="util.emtl#/0/getSnakeCase"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getTemplate">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="util.emtl#/0/getTemplate"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getFileName">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="util.emtl#/0/getFileName"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arg2">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arg3">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getTemplateFiles">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="util.emtl#/0/getTemplateFiles"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/T"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="microservice_Generator_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://com/microservice#//Generator"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Mics)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:CollectionType" name="Collection(Mics)" instanceClassName="java.util.Collection">
+      <elementType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Mics)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(OclAny)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Mics)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Front)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://com/microservice#//Front"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="types">
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Mics">
+      <referredType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Front">
+      <referredType xsi:type="ecore:EClass" href="http://com/microservice#//Front"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Mics"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Front"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Front"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateGateway">
+      <details key="start" value="147"/>
+      <details key="end" value="7017"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateGateway/%">
+      <details key="start" value="206"/>
+      <details key="end" value="210"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateGateway/%.1">
+      <details key="start" value="210"/>
+      <details key="end" value="7004"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateGateway/%.1/%">
+      <details key="start" value="258"/>
+      <details key="end" value="260"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateGateway/%.1/%.1">
+      <details key="start" value="260"/>
+      <details key="end" value="539"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateGateway/%.1/%.1/%">
+      <details key="start" value="359"/>
+      <details key="end" value="531"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateGateway/%.1/%.1/%/%">
+      <details key="start" value="488"/>
+      <details key="end" value="520"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateGateway/%.1/%.1/%/%/aGenerator">
+      <details key="start" value="500"/>
+      <details key="end" value="510"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateGateway/%.1/%.1/%/%/fileName">
+      <details key="start" value="511"/>
+      <details key="end" value="519"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateGateway/%.1/%.1/%/%.1">
+      <details key="start" value="522"/>
+      <details key="end" value="524"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateGateway/%.1/%.1/%/%.2">
+      <details key="start" value="366"/>
+      <details key="end" value="476"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateGateway/%.1/%.1/%/%.2/aGenerator">
+      <details key="start" value="378"/>
+      <details key="end" value="388"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateGateway/%.1/%.1/%/%.2/%">
+      <details key="start" value="389"/>
+      <details key="end" value="425"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateGateway/%.1/%.1/%/%.2/%/%">
+      <details key="start" value="389"/>
+      <details key="end" value="420"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateGateway/%.1/%.1/%/%.2/%/%/%">
+      <details key="start" value="389"/>
+      <details key="end" value="412"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateGateway/%.1/%.1/%/%.2/%/%/%/aGenerator">
+      <details key="start" value="389"/>
+      <details key="end" value="399"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateGateway/%.1/%.1/%/%.2/%.1">
+      <details key="start" value="426"/>
+      <details key="end" value="466"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateGateway/%.1/%.1/%/%.2/fileName">
+      <details key="start" value="467"/>
+      <details key="end" value="475"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateGateway/%.1/%.1/fileName">
+      <details key="start" value="266"/>
+      <details key="end" value="283"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateGateway/%.1/%.1/%.1">
+      <details key="start" value="286"/>
+      <details key="end" value="355"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateGateway/%.1/%.1/%.1/aGenerator">
+      <details key="start" value="303"/>
+      <details key="end" value="313"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateGateway/%.1/%.1/%.1/%">
+      <details key="start" value="314"/>
+      <details key="end" value="354"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateGateway/%.1/%.2">
+      <details key="start" value="541"/>
+      <details key="end" value="543"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateGateway/%.1/%.3">
+      <details key="start" value="543"/>
+      <details key="end" value="1035"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateGateway/%.1/%.3/%">
+      <details key="start" value="653"/>
+      <details key="end" value="731"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateGateway/%.1/%.3/%.1">
+      <details key="start" value="732"/>
+      <details key="end" value="768"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateGateway/%.1/%.3/%.1/%">
+      <details key="start" value="732"/>
+      <details key="end" value="763"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateGateway/%.1/%.3/%.1/%/%">
+      <details key="start" value="732"/>
+      <details key="end" value="755"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateGateway/%.1/%.3/%.1/%/%/aGenerator">
+      <details key="start" value="732"/>
+      <details key="end" value="742"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateGateway/%.1/%.3/%.2">
+      <details key="start" value="770"/>
+      <details key="end" value="796"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateGateway/%.1/%.3/%.3">
+      <details key="start" value="797"/>
+      <details key="end" value="833"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateGateway/%.1/%.3/%.3/%">
+      <details key="start" value="797"/>
+      <details key="end" value="828"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateGateway/%.1/%.3/%.3/%/%">
+      <details key="start" value="797"/>
+      <details key="end" value="820"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateGateway/%.1/%.3/%.3/%/%/aGenerator">
+      <details key="start" value="797"/>
+      <details key="end" value="807"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateGateway/%.1/%.3/%.4">
+      <details key="start" value="835"/>
+      <details key="end" value="892"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateGateway/%.1/%.3/%.5">
+      <details key="start" value="894"/>
+      <details key="end" value="897"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateGateway/%.1/%.3/%.6">
+      <details key="start" value="900"/>
+      <details key="end" value="957"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateGateway/%.1/%.3/%.7">
+      <details key="start" value="958"/>
+      <details key="end" value="994"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateGateway/%.1/%.3/%.7/%">
+      <details key="start" value="958"/>
+      <details key="end" value="989"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateGateway/%.1/%.3/%.7/%/%">
+      <details key="start" value="958"/>
+      <details key="end" value="981"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateGateway/%.1/%.3/%.7/%/%/aGenerator">
+      <details key="start" value="958"/>
+      <details key="end" value="968"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateGateway/%.1/%.3/%.8">
+      <details key="start" value="996"/>
+      <details key="end" value="1017"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateGateway/%.1/%.3/%.9">
+      <details key="start" value="1019"/>
+      <details key="end" value="1022"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateGateway/%.1/%.3/%.10">
+      <details key="start" value="1025"/>
+      <details key="end" value="1028"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateGateway/%.1/%.3/%.11">
+      <details key="start" value="550"/>
+      <details key="end" value="642"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateGateway/%.1/%.3/%.11/%">
+      <details key="start" value="550"/>
+      <details key="end" value="609"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateGateway/%.1/%.3/%.11/%/aGenerator">
+      <details key="start" value="561"/>
+      <details key="end" value="571"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateGateway/%.1/%.3/%.11/%/%">
+      <details key="start" value="572"/>
+      <details key="end" value="608"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateGateway/%.1/%.3/%.11/%/%/%">
+      <details key="start" value="572"/>
+      <details key="end" value="603"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateGateway/%.1/%.3/%.11/%/%/%/%">
+      <details key="start" value="572"/>
+      <details key="end" value="595"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateGateway/%.1/%.3/%.11/%/%/%/%/aGenerator">
+      <details key="start" value="572"/>
+      <details key="end" value="582"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateGateway/%.1/%.3/%.11/%.1">
+      <details key="start" value="617"/>
+      <details key="end" value="641"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateGateway/%.1/%.3/%.11/%.1/%">
+      <details key="start" value="617"/>
+      <details key="end" value="620"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateGateway/%.1/%.3/%.11/%.1/%.1">
+      <details key="start" value="628"/>
+      <details key="end" value="640"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateGateway/%.1/%.4">
+      <details key="start" value="1037"/>
+      <details key="end" value="1039"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateGateway/%.1/%.5">
+      <details key="start" value="1039"/>
+      <details key="end" value="2757"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateGateway/%.1/%.5/%">
+      <details key="start" value="1171"/>
+      <details key="end" value="1188"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateGateway/%.1/%.5/%.1">
+      <details key="start" value="1189"/>
+      <details key="end" value="1225"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateGateway/%.1/%.5/%.1/%">
+      <details key="start" value="1189"/>
+      <details key="end" value="1220"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateGateway/%.1/%.5/%.1/%/%">
+      <details key="start" value="1189"/>
+      <details key="end" value="1212"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateGateway/%.1/%.5/%.1/%/%/aGenerator">
+      <details key="start" value="1189"/>
+      <details key="end" value="1199"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateGateway/%.1/%.5/%.2">
+      <details key="start" value="1227"/>
+      <details key="end" value="1302"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateGateway/%.1/%.5/%.3">
+      <details key="start" value="1303"/>
+      <details key="end" value="1339"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateGateway/%.1/%.5/%.3/%">
+      <details key="start" value="1303"/>
+      <details key="end" value="1334"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateGateway/%.1/%.5/%.3/%/%">
+      <details key="start" value="1303"/>
+      <details key="end" value="1326"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateGateway/%.1/%.5/%.3/%/%/aGenerator">
+      <details key="start" value="1303"/>
+      <details key="end" value="1313"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateGateway/%.1/%.5/%.4">
+      <details key="start" value="1341"/>
+      <details key="end" value="1664"/>
+      <details key="line" value="32"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateGateway/%.1/%.5/%.5">
+      <details key="start" value="1665"/>
+      <details key="end" value="1693"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateGateway/%.1/%.5/%.5/%">
+      <details key="start" value="1665"/>
+      <details key="end" value="1688"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateGateway/%.1/%.5/%.5/%/aGenerator">
+      <details key="start" value="1665"/>
+      <details key="end" value="1675"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateGateway/%.1/%.5/%.6">
+      <details key="start" value="1695"/>
+      <details key="end" value="1713"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateGateway/%.1/%.5/%.7">
+      <details key="start" value="1714"/>
+      <details key="end" value="1742"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateGateway/%.1/%.5/%.7/%">
+      <details key="start" value="1714"/>
+      <details key="end" value="1737"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateGateway/%.1/%.5/%.7/%/aGenerator">
+      <details key="start" value="1714"/>
+      <details key="end" value="1724"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateGateway/%.1/%.5/%.8">
+      <details key="start" value="1744"/>
+      <details key="end" value="1779"/>
+      <details key="line" value="46"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateGateway/%.1/%.5/%.9">
+      <details key="start" value="1780"/>
+      <details key="end" value="1808"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateGateway/%.1/%.5/%.9/%">
+      <details key="start" value="1780"/>
+      <details key="end" value="1803"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateGateway/%.1/%.5/%.9/%/aGenerator">
+      <details key="start" value="1780"/>
+      <details key="end" value="1790"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateGateway/%.1/%.5/%.10">
+      <details key="start" value="1810"/>
+      <details key="end" value="1817"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateGateway/%.1/%.5/%.11">
+      <details key="start" value="1817"/>
+      <details key="end" value="2188"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateGateway/%.1/%.5/%.11/%">
+      <details key="start" value="1862"/>
+      <details key="end" value="2181"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateGateway/%.1/%.5/%.11/%/%">
+      <details key="start" value="1927"/>
+      <details key="end" value="1935"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateGateway/%.1/%.5/%.11/%/%.1">
+      <details key="start" value="1936"/>
+      <details key="end" value="1973"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateGateway/%.1/%.5/%.11/%/%.1/aGenerator">
+      <details key="start" value="1953"/>
+      <details key="end" value="1963"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateGateway/%.1/%.5/%.11/%/%.1/%">
+      <details key="start" value="1964"/>
+      <details key="end" value="1972"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateGateway/%.1/%.5/%.11/%/%.1/%/mic">
+      <details key="start" value="1964"/>
+      <details key="end" value="1967"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateGateway/%.1/%.5/%.11/%/%.2">
+      <details key="start" value="1975"/>
+      <details key="end" value="1994"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateGateway/%.1/%.5/%.11/%/%.3">
+      <details key="start" value="1995"/>
+      <details key="end" value="2031"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateGateway/%.1/%.5/%.11/%/%.3/%">
+      <details key="start" value="1995"/>
+      <details key="end" value="2017"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateGateway/%.1/%.5/%.11/%/%.3/%/%">
+      <details key="start" value="2008"/>
+      <details key="end" value="2016"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateGateway/%.1/%.5/%.11/%/%.3/%/%/mic">
+      <details key="start" value="2008"/>
+      <details key="end" value="2011"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateGateway/%.1/%.5/%.11/%/%.4">
+      <details key="start" value="2033"/>
+      <details key="end" value="2040"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateGateway/%.1/%.5/%.11/%/%.5">
+      <details key="start" value="2041"/>
+      <details key="end" value="2078"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateGateway/%.1/%.5/%.11/%/%.5/aGenerator">
+      <details key="start" value="2058"/>
+      <details key="end" value="2068"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateGateway/%.1/%.5/%.11/%/%.5/%">
+      <details key="start" value="2069"/>
+      <details key="end" value="2077"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateGateway/%.1/%.5/%.11/%/%.5/%/mic">
+      <details key="start" value="2069"/>
+      <details key="end" value="2072"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateGateway/%.1/%.5/%.11/%/%.6">
+      <details key="start" value="2080"/>
+      <details key="end" value="2086"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateGateway/%.1/%.5/%.11/%/%.7">
+      <details key="start" value="2087"/>
+      <details key="end" value="2095"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateGateway/%.1/%.5/%.11/%/%.7/mic">
+      <details key="start" value="2087"/>
+      <details key="end" value="2090"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateGateway/%.1/%.5/%.11/%/%.8">
+      <details key="start" value="2097"/>
+      <details key="end" value="2114"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateGateway/%.1/%.5/%.11/%/%.9">
+      <details key="start" value="2115"/>
+      <details key="end" value="2151"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateGateway/%.1/%.5/%.11/%/%.9/%">
+      <details key="start" value="2115"/>
+      <details key="end" value="2137"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateGateway/%.1/%.5/%.11/%/%.9/%/%">
+      <details key="start" value="2128"/>
+      <details key="end" value="2136"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateGateway/%.1/%.5/%.11/%/%.9/%/%/mic">
+      <details key="start" value="2128"/>
+      <details key="end" value="2131"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateGateway/%.1/%.5/%.11/%/%.10">
+      <details key="start" value="2153"/>
+      <details key="end" value="2158"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateGateway/%.1/%.5/%.11/%/%.11">
+      <details key="start" value="2159"/>
+      <details key="end" value="2170"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateGateway/%.1/%.5/%.11/%/%.11/mic">
+      <details key="start" value="2159"/>
+      <details key="end" value="2162"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateGateway/%.1/%.5/%.11/%/%.12">
+      <details key="start" value="2172"/>
+      <details key="end" value="2175"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateGateway/%.1/%.5/%.11/%/mic">
+      <details key="start" value="1868"/>
+      <details key="end" value="1878"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateGateway/%.1/%.5/%.11/%/%.13">
+      <details key="start" value="1881"/>
+      <details key="end" value="1923"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateGateway/%.1/%.5/%.11/%/%.13/%">
+      <details key="start" value="1881"/>
+      <details key="end" value="1904"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateGateway/%.1/%.5/%.11/%/%.13/%/aGenerator">
+      <details key="start" value="1881"/>
+      <details key="end" value="1891"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateGateway/%.1/%.5/%.11/%/%.13/%.1">
+      <details key="start" value="1918"/>
+      <details key="end" value="1922"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateGateway/%.1/%.5/%.11/%.1">
+      <details key="start" value="1821"/>
+      <details key="end" value="1859"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateGateway/%.1/%.5/%.11/%.1/%">
+      <details key="start" value="1822"/>
+      <details key="end" value="1850"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateGateway/%.1/%.5/%.11/%.1/%/%">
+      <details key="start" value="1822"/>
+      <details key="end" value="1845"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateGateway/%.1/%.5/%.11/%.1/%/%/aGenerator">
+      <details key="start" value="1822"/>
+      <details key="end" value="1832"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateGateway/%.1/%.5/%.11/%.1/%.1">
+      <details key="start" value="1854"/>
+      <details key="end" value="1858"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateGateway/%.1/%.5/%.12">
+      <details key="start" value="2190"/>
+      <details key="end" value="2235"/>
+      <details key="line" value="55"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateGateway/%.1/%.5/%.13">
+      <details key="start" value="2236"/>
+      <details key="end" value="2264"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateGateway/%.1/%.5/%.13/%">
+      <details key="start" value="2236"/>
+      <details key="end" value="2259"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateGateway/%.1/%.5/%.13/%/aGenerator">
+      <details key="start" value="2236"/>
+      <details key="end" value="2246"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateGateway/%.1/%.5/%.14">
+      <details key="start" value="2266"/>
+      <details key="end" value="2642"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateGateway/%.1/%.5/%.15">
+      <details key="start" value="2642"/>
+      <details key="end" value="2748"/>
+      <details key="line" value="69"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateGateway/%.1/%.5/%.15/%">
+      <details key="start" value="2707"/>
+      <details key="end" value="2719"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateGateway/%.1/%.5/%.15/%.1">
+      <details key="start" value="2720"/>
+      <details key="end" value="2736"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateGateway/%.1/%.5/%.15/%.1/f">
+      <details key="start" value="2720"/>
+      <details key="end" value="2721"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateGateway/%.1/%.5/%.15/%.2">
+      <details key="start" value="2738"/>
+      <details key="end" value="2742"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateGateway/%.1/%.5/%.15/f">
+      <details key="start" value="2648"/>
+      <details key="end" value="2657"/>
+      <details key="line" value="69"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateGateway/%.1/%.5/%.15/%.3">
+      <details key="start" value="2660"/>
+      <details key="end" value="2703"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateGateway/%.1/%.5/%.15/%.3/%">
+      <details key="start" value="2660"/>
+      <details key="end" value="2683"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateGateway/%.1/%.5/%.15/%.3/%/aGenerator">
+      <details key="start" value="2660"/>
+      <details key="end" value="2670"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateGateway/%.1/%.5/%.15/%.3/%.1">
+      <details key="start" value="2697"/>
+      <details key="end" value="2702"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateGateway/%.1/%.5/%.16">
+      <details key="start" value="1046"/>
+      <details key="end" value="1151"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateGateway/%.1/%.5/%.16/%">
+      <details key="start" value="1046"/>
+      <details key="end" value="1105"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateGateway/%.1/%.5/%.16/%/aGenerator">
+      <details key="start" value="1057"/>
+      <details key="end" value="1067"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateGateway/%.1/%.5/%.16/%/%">
+      <details key="start" value="1068"/>
+      <details key="end" value="1104"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateGateway/%.1/%.5/%.16/%/%/%">
+      <details key="start" value="1068"/>
+      <details key="end" value="1099"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/generateGateway/%.1/%.5/%.16/%/%/%/%">
+      <details key="start" value="1068"/>
+      <details key="end" value="1091"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/generateGateway/%.1/%.5/%.16/%/%/%/%/aGenerator">
+      <details key="start" value="1068"/>
+      <details key="end" value="1078"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/generateGateway/%.1/%.5/%.16/%.1">
+      <details key="start" value="1113"/>
+      <details key="end" value="1150"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/generateGateway/%.1/%.5/%.17">
+      <details key="start" value="1160"/>
+      <details key="end" value="1167"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/generateGateway/%.1/%.6">
+      <details key="start" value="2759"/>
+      <details key="end" value="2763"/>
+      <details key="line" value="73"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/generateGateway/%.1/%.7">
+      <details key="start" value="2763"/>
+      <details key="end" value="6995"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/generateGateway/%.1/%.7/%">
+      <details key="start" value="2870"/>
+      <details key="end" value="3127"/>
+      <details key="line" value="76"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/generateGateway/%.1/%.7/%.1">
+      <details key="start" value="3128"/>
+      <details key="end" value="3160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/generateGateway/%.1/%.7/%.1/%">
+      <details key="start" value="3128"/>
+      <details key="end" value="3151"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/generateGateway/%.1/%.7/%.1/%/aGenerator">
+      <details key="start" value="3128"/>
+      <details key="end" value="3138"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/generateGateway/%.1/%.7/%.2">
+      <details key="start" value="3162"/>
+      <details key="end" value="3187"/>
+      <details key="line" value="80"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/generateGateway/%.1/%.7/%.3">
+      <details key="start" value="3188"/>
+      <details key="end" value="3224"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/generateGateway/%.1/%.7/%.3/%">
+      <details key="start" value="3188"/>
+      <details key="end" value="3219"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/generateGateway/%.1/%.7/%.3/%/%">
+      <details key="start" value="3188"/>
+      <details key="end" value="3211"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/generateGateway/%.1/%.7/%.3/%/%/aGenerator">
+      <details key="start" value="3188"/>
+      <details key="end" value="3198"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/generateGateway/%.1/%.7/%.4">
+      <details key="start" value="3226"/>
+      <details key="end" value="6988"/>
+      <details key="line" value="81"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/generateGateway/%.1/%.7/%.5">
+      <details key="start" value="2770"/>
+      <details key="end" value="2859"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/generateGateway/%.1/%.7/%.5/%">
+      <details key="start" value="2770"/>
+      <details key="end" value="2829"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/generateGateway/%.1/%.7/%.5/%/aGenerator">
+      <details key="start" value="2781"/>
+      <details key="end" value="2791"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/generateGateway/%.1/%.7/%.5/%/%">
+      <details key="start" value="2792"/>
+      <details key="end" value="2828"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/generateGateway/%.1/%.7/%.5/%/%/%">
+      <details key="start" value="2792"/>
+      <details key="end" value="2823"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/generateGateway/%.1/%.7/%.5/%/%/%/%">
+      <details key="start" value="2792"/>
+      <details key="end" value="2815"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/generateGateway/%.1/%.7/%.5/%/%/%/%/aGenerator">
+      <details key="start" value="2792"/>
+      <details key="end" value="2802"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/generateGateway/%.1/%.7/%.5/%.1">
+      <details key="start" value="2837"/>
+      <details key="end" value="2858"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.162" references="/0/generateGateway/%.1/%.7/%.5/%.1/%">
+      <details key="start" value="2837"/>
+      <details key="end" value="2840"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.163" references="/0/generateGateway/%.1/%.7/%.5/%.1/%.1">
+      <details key="start" value="2848"/>
+      <details key="end" value="2857"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.164" references="/0/generateGateway/%.1/%.8">
+      <details key="start" value="6997"/>
+      <details key="end" value="6999"/>
+      <details key="line" value="225"/>
+    </eAnnotations>
+    <eAnnotations source="positions.165" references="/0/generateGateway/%.1/%.9">
+      <details key="start" value="214"/>
+      <details key="end" value="255"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.166" references="/0/generateGateway/%.1/%.9/%">
+      <details key="start" value="215"/>
+      <details key="end" value="246"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.167" references="/0/generateGateway/%.1/%.9/%/%">
+      <details key="start" value="215"/>
+      <details key="end" value="238"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/generateGateway/%.1/%.9/%/%/aGenerator">
+      <details key="start" value="215"/>
+      <details key="end" value="225"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/generateGateway/%.1/%.9/%.1">
+      <details key="start" value="250"/>
+      <details key="end" value="254"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/generateGateway/aGenerator">
+      <details key="start" value="180"/>
+      <details key="end" value="202"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

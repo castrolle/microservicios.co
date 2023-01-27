@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@hapi/hapi": "^21.2.0",
+    "@hapi/inert": "^7.0.0",
+    "@hapi/vision": "^7.0.0",
+    "dotenv": "^16.0.3",
+    "hapi-swaggered": "^3.0.2",
+    "hapi-swaggered-ui": "^3.0.2",
+    "joi": "^17.7.0",
+    "node-fetch": "^2.6.8"
+  },
+  "devDependencies": {
+    "@types/hapi__hapi": "^21.0.0",
+    "@types/hapi__inert": "^5.2.4",
+    "@types/hapi__joi": "^17.1.9",
+    "@types/hapi__vision": "^5.5.4",
+    "@types/node": "^18.11.18",
+    "hapi-swagger": "^15.0.0"
+  }
+}
