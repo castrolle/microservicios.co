@@ -4,14 +4,14 @@
     <input>
       <takesTypesFrom href="http://com/microservice#/"/>
     </input>
-    <imports href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0"/>
+    <imports href="util.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateFront" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;"/>
       <body xsi:type="mtl:ForBlock">
         <body xsi:type="mtl:FileBlock" openMode="OverWrite">
           <body xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getTemplate"/>
+            <definition href="util.emtl#/0/getTemplate"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -22,7 +22,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getFileName"/>
+            <definition href="util.emtl#/0/getFileName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -55,7 +55,7 @@
         </loopVariable>
         <iterSet xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/T"/>
-          <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getTemplateFiles"/>
+          <definition href="util.emtl#/0/getTemplateFiles"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
             <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
           </argument>
@@ -181,7 +181,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+              <definition href="util.emtl#/0/getAppName"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
                 <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
               </argument>
@@ -349,7 +349,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -411,7 +411,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -473,7 +473,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -569,7 +569,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.13/%.3/entity">
@@ -592,7 +592,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.13/%.3/entity">
@@ -608,7 +608,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.13/%.3/entity">
@@ -651,7 +651,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.13/%.3/entity">
@@ -722,7 +722,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" &#x9;"/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="service" referredVariable="/0/generateFront/%.13/%.3/%.3/service">
@@ -740,7 +740,7 @@
                 </body>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.13/%.3/%.3/%/path">
@@ -774,7 +774,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=">(`${environment.URL_API}/"/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="service" referredVariable="/0/generateFront/%.13/%.3/%.3/service">
@@ -794,7 +794,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.13/%.3/%.3/%/path">
@@ -843,7 +843,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="   "/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="service" referredVariable="/0/generateFront/%.13/%.3/%.3/service">
@@ -861,7 +861,7 @@
                 </body>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.13/%.3/%.3/%/path">
@@ -915,7 +915,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=">(`${environment.URL_API}/"/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="service" referredVariable="/0/generateFront/%.13/%.3/%.3/service">
@@ -935,7 +935,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.13/%.3/%.3/%/path">
@@ -1050,7 +1050,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -1090,7 +1090,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+              <definition href="util.emtl#/0/getAppName"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
                 <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
               </argument>
@@ -1290,7 +1290,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    &lt;div class=&quot;rounded-md shadow&quot;>&#xD;&#xA;      &lt;a (click)=&quot;"/>
               <body xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="service" referredVariable="/0/generateFront/%.15/%.2/%.11/service">
@@ -1308,7 +1308,7 @@
               </body>
               <body xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.15/%.2/%.11/%/path">
@@ -1320,7 +1320,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="()&quot; class=&quot;w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10&quot;>&#xD;&#xA;       &#x9; "/>
               <body xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.15/%.2/%.11/%/path">
@@ -1375,7 +1375,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -1389,7 +1389,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="()&quot; class=&quot;w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10&quot;>&#xD;&#xA;       &#x9; get"/>
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+              <definition href="util.emtl#/0/getCapitalName"/>
               <argument xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -1403,7 +1403,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -1417,7 +1417,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="()&quot; class=&quot;w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10&quot;>&#xD;&#xA;       &#x9; post"/>
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+              <definition href="util.emtl#/0/getCapitalName"/>
               <argument xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -1514,7 +1514,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+              <definition href="util.emtl#/0/getAppName"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
                 <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
               </argument>
@@ -1619,7 +1619,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+              <definition href="util.emtl#/0/getAppName"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
                 <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
               </argument>
@@ -1806,7 +1806,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA; })&#xD;&#xA;export class "/>
           <body xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+            <definition href="util.emtl#/0/getCapitalName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -1821,7 +1821,7 @@
           </body>
           <body xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+            <definition href="util.emtl#/0/getCapitalName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -1882,7 +1882,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -1920,7 +1920,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -1966,7 +1966,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -2004,7 +2004,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+                <definition href="util.emtl#/0/getCapitalName"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.15/entity">
@@ -2100,7 +2100,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
               <body xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="service" referredVariable="/0/generateFront/%.15/%.6/%.29/service">
@@ -2118,7 +2118,7 @@
               </body>
               <body xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                 <argument xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.15/%.6/%.29/%/path">
@@ -2154,7 +2154,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;         &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.gatewayService."/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="service" referredVariable="/0/generateFront/%.15/%.6/%.29/service">
@@ -2172,7 +2172,7 @@
                 </body>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.15/%.6/%.29/%/path">
@@ -2271,7 +2271,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;         &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.gatewayService."/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="service" referredVariable="/0/generateFront/%.15/%.6/%.29/service">
@@ -2289,7 +2289,7 @@
                 </body>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+                  <definition href="util.emtl#/0/getCapitalNameNonFirst"/>
                   <argument xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="path" referredVariable="/0/generateFront/%.15/%.6/%.29/%/path">
@@ -2416,7 +2416,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+              <definition href="util.emtl#/0/getAppName"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
                 <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
               </argument>
@@ -2600,7 +2600,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -2640,7 +2640,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="import { "/>
           <body xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+            <definition href="util.emtl#/0/getCapitalName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -2655,7 +2655,7 @@
           </body>
           <body xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+            <definition href="util.emtl#/0/getCapitalName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.19/%.1/entity">
@@ -2724,7 +2724,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="  "/>
           <body xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+            <definition href="util.emtl#/0/getCapitalName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -2739,7 +2739,7 @@
           </body>
           <body xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+            <definition href="util.emtl#/0/getCapitalName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="entity" referredVariable="/0/generateFront/%.19/%.5/entity">
@@ -2795,7 +2795,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -2847,7 +2847,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -2898,7 +2898,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -2949,7 +2949,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+            <definition href="util.emtl#/0/getAppName"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateFront/aGenerator">
               <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
             </argument>
@@ -3023,7 +3023,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getAppName"/>
+          <references href="util.emtl#/0/getAppName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -3038,7 +3038,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalNameNonFirst"/>
+          <references href="util.emtl#/0/getCapitalNameNonFirst"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -3050,7 +3050,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getCapitalName"/>
+          <references href="util.emtl#/0/getCapitalName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -3062,7 +3062,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getTemplate"/>
+          <references href="util.emtl#/0/getTemplate"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -3077,7 +3077,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getFileName"/>
+          <references href="util.emtl#/0/getFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -3098,7 +3098,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/com.microservice.acceleo.module.generator/bin/com/microservice/acceleo/module/generator/main/util.emtl#/0/getTemplateFiles"/>
+          <references href="util.emtl#/0/getTemplateFiles"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/T"/>
         <eParameters name="arg0">
