@@ -424,6 +424,32 @@
       </expression>
       <type xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/T"/>
     </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getAngularTypes" visibility="Public">
+      <parameter name="arg0">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/41">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="com.microservice.acceleo.module.generator.util.UtilServices">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getAngularTypes(java.lang.String)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/4/Sequence(String)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="arg0" referredVariable="/0/getAngularTypes/arg0">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
@@ -601,6 +627,16 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
+      <eOperations name="getAngularTypes">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getAngularTypes"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -756,6 +792,15 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -1359,6 +1404,46 @@
     <eAnnotations source="positions.119" references="/0/getTemplateFiles/%/%.2/%.1/arg1">
       <details key="start" value="2835"/>
       <details key="end" value="2839"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/getAngularTypes">
+      <details key="start" value="2849"/>
+      <details key="end" value="3033"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/getAngularTypes/arg0">
+      <details key="start" value="2879"/>
+      <details key="end" value="2892"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/getAngularTypes/%">
+      <details key="start" value="2907"/>
+      <details key="end" value="3029"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/getAngularTypes/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/getAngularTypes/%/%">
+      <details key="start" value="2914"/>
+      <details key="end" value="2975"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/getAngularTypes/%/%.1">
+      <details key="start" value="2977"/>
+      <details key="end" value="3012"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/getAngularTypes/%/%.2">
+      <details key="start" value="3014"/>
+      <details key="end" value="3028"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/getAngularTypes/%/%.2/%/arg0">
+      <details key="start" value="3023"/>
+      <details key="end" value="3027"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>
