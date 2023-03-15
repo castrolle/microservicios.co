@@ -538,6 +538,41 @@
       </expression>
       <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
     </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getEntiryTypeSample" visibility="Public">
+      <parameter name="arg0">
+        <eType xsi:type="ecore:EEnum" href="http://com/microservice#//EntityAttributeType"/>
+      </parameter>
+      <parameter name="arg1">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/invoke">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/50">
+          <eType xsi:type="ecore:EEnum" href="http://com/microservice#//EntityAttributeType"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="com.microservice.acceleo.module.generator.util.UtilServices">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="getEntiryTypeSample(microservice.EntityAttributeType, java.lang.String)">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+        <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/4/Sequence(OclAny)" kind="Sequence">
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ecore:EEnum" href="http://com/microservice#//EntityAttributeType"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="arg0" referredVariable="/0/getEntiryTypeSample/arg0">
+              <eType xsi:type="ecore:EEnum" href="http://com/microservice#//EntityAttributeType"/>
+            </item>
+          </part>
+          <part xsi:type="ocl.ecore:CollectionItem">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <item xsi:type="ocl.ecore:VariableExp" name="arg1" referredVariable="/0/getEntiryTypeSample/arg1">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </item>
+          </part>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
@@ -757,6 +792,19 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
+      <eOperations name="getEntiryTypeSample">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getEntiryTypeSample"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EEnum" href="http://com/microservice#//EntityAttributeType"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -794,6 +842,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="microservice_Generator_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://com/microservice#//Generator"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="microservice_EntityAttributeType_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://com/microservice#//EntityAttributeType"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -939,6 +992,15 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EEnum" href="http://com/microservice#//EntityAttributeType"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EEnum" href="http://com/microservice#//EntityAttributeType"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -1702,6 +1764,56 @@
     <eAnnotations source="positions.151" references="/0/getAngularTypes/%/%.2/%/arg0">
       <details key="start" value="3565"/>
       <details key="end" value="3569"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/getEntiryTypeSample">
+      <details key="start" value="3579"/>
+      <details key="end" value="3838"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/getEntiryTypeSample/arg0">
+      <details key="start" value="3613"/>
+      <details key="end" value="3639"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/getEntiryTypeSample/arg1">
+      <details key="start" value="3641"/>
+      <details key="end" value="3654"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/getEntiryTypeSample/%">
+      <details key="start" value="3669"/>
+      <details key="end" value="3834"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/getEntiryTypeSample/%/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/getEntiryTypeSample/%/%">
+      <details key="start" value="3676"/>
+      <details key="end" value="3737"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/getEntiryTypeSample/%/%.1">
+      <details key="start" value="3739"/>
+      <details key="end" value="3812"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/getEntiryTypeSample/%/%.2">
+      <details key="start" value="3814"/>
+      <details key="end" value="3833"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/getEntiryTypeSample/%/%.2/%/arg0">
+      <details key="start" value="3823"/>
+      <details key="end" value="3827"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/getEntiryTypeSample/%/%.2/%.1/arg1">
+      <details key="start" value="3828"/>
+      <details key="end" value="3832"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>
