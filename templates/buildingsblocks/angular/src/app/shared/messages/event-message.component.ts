@@ -34,13 +34,6 @@ export class EventMessageComponent implements OnInit, AfterViewInit {
  
   ngOnInit() {
     
-    this.user = this.authService.getUser();    
-    this.user.subscribe(user => {
-      if (user != null && user.email != null) {
-        this.ga.sendEvent('persona', 'user', user.email);
-      }
-    });
-
     this.eventMessage.subscribe('interceptor.error.401', callback => {
       this.errors = callback.data;
       this.logOut();      
