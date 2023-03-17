@@ -68,7 +68,19 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".dto.TokenResponse;&#xD;&#xA;import io.swagger.annotations.Api;&#xD;&#xA;import io.swagger.annotations.ApiResponse;&#xD;&#xA;import io.swagger.annotations.ApiResponses;&#xD;&#xA;&#xD;&#xA;@RestController&#xD;&#xA;@ApiResponses(value = {&#xD;&#xA;        @ApiResponse(code = 200, message = &quot;Accion exitosa&quot;),&#xD;&#xA;        @ApiResponse(code = 500, message = &quot;Internal Server Error&quot;)&#xD;&#xA;})&#xD;&#xA;@Api(value = &quot;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".dto.TokenResponse;&#xD;&#xA;import "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".dto.LoginRequestDTO;&#xD;&#xA;import io.swagger.annotations.Api;&#xD;&#xA;import io.swagger.annotations.ApiResponse;&#xD;&#xA;import io.swagger.annotations.ApiResponses;&#xD;&#xA;&#xD;&#xA;@RestController&#xD;&#xA;@ApiResponses(value = {&#xD;&#xA;        @ApiResponse(code = 200, message = &quot;Accion exitosa&quot;),&#xD;&#xA;        @ApiResponse(code = 500, message = &quot;Internal Server Error&quot;)&#xD;&#xA;})&#xD;&#xA;@Api(value = &quot;"/>
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="util.emtl#/0/getAppName"/>
@@ -87,7 +99,7 @@
             <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/name"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" AuthController&quot;, description = &quot;test&quot;,  tags = {&quot;&quot;,&quot;&quot;})&#xD;&#xA;@RequestMapping(&quot;/auth&quot;)&#xD;&#xA;public class AuthController {&#xD;&#xA;&#xD;&#xA;    @Autowired&#xD;&#xA;    ControllerBusiness controllerBusiness;&#xD;&#xA;&#xD;&#xA;    @Autowired&#xD;&#xA;    private JwtTokenUtil jwtTokenUtil;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${spring.application.username}&quot;)&#xD;&#xA;&#x9;private String username;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${spring.application.password}&quot;)&#xD;&#xA;&#x9;private String password;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${jwt.token.timeOut}&quot;)&#xD;&#xA;&#x9;private long accessTokenTimeOut; // 60 segundos * 30 minutos&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    @PostMapping(path=&quot;token&quot;, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})&#xD;&#xA;    public ResponseEntity&lt;TokenResponse> login(TokenRequest tokenRequest) {&#xD;&#xA;        TokenResponse response = new TokenResponse();&#xD;&#xA;        if(tokenRequest.getClient_id() != null &amp;&amp; !tokenRequest.getClient_id().isEmpty() &amp;&amp; tokenRequest.getClient_id().toUpperCase().equals(username.toUpperCase())) {&#xD;&#xA;        &#x9;&#xD;&#xA;        &#x9;if(tokenRequest.getClient_secret() != null &amp;&amp; !tokenRequest.getClient_secret().isEmpty() &amp;&amp; tokenRequest.getClient_secret().equals(password)) {&#xD;&#xA;        &#x9;&#x9;String token = getJWTToken(tokenRequest.getClient_id());&#xD;&#xA;        &#x9;&#x9;response.setAccess_token(token);&#xD;&#xA;        &#x9;&#x9;response.setExpires_in(accessTokenTimeOut);&#xD;&#xA;        &#x9;&#x9;return new ResponseEntity(response, HttpStatus.OK);&#x9;&#xD;&#xA;        &#x9;}&#xD;&#xA;        }&#xD;&#xA;        &#xD;&#xA;        return new ResponseEntity(response, HttpStatus.PROXY_AUTHENTICATION_REQUIRED);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    private String getJWTToken(String name) {&#xD;&#xA;    &#x9;String token =jwtTokenUtil.generateToken(name);&#xD;&#xA;    &#x9;return token;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" AuthController&quot;, description = &quot;test&quot;,  tags = {&quot;&quot;,&quot;&quot;})&#xD;&#xA;@RequestMapping(&quot;/auth&quot;)&#xD;&#xA;public class AuthController {&#xD;&#xA;&#xD;&#xA;    @Autowired&#xD;&#xA;    ControllerBusiness controllerBusiness;&#xD;&#xA;&#xD;&#xA;    @Autowired&#xD;&#xA;    private JwtTokenUtil jwtTokenUtil;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${spring.application.username}&quot;)&#xD;&#xA;&#x9;private String username;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${spring.application.password}&quot;)&#xD;&#xA;&#x9;private String password;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${jwt.token.timeOut}&quot;)&#xD;&#xA;&#x9;private long accessTokenTimeOut; // 60 segundos * 30 minutos&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;    @PostMapping(path=&quot;token&quot;, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})&#xD;&#xA;    public ResponseEntity&lt;TokenResponse> login(TokenRequest tokenRequest) {&#xD;&#xA;        TokenResponse response = new TokenResponse();&#xD;&#xA;        if(tokenRequest.getClient_id() != null &amp;&amp; !tokenRequest.getClient_id().isEmpty() &amp;&amp; tokenRequest.getClient_id().toUpperCase().equals(username.toUpperCase())) {&#xD;&#xA;        &#x9;&#xD;&#xA;        &#x9;if(tokenRequest.getClient_secret() != null &amp;&amp; !tokenRequest.getClient_secret().isEmpty() &amp;&amp; tokenRequest.getClient_secret().equals(password)) {&#xD;&#xA;        &#x9;&#x9;String token = getJWTToken(tokenRequest.getClient_id());&#xD;&#xA;        &#x9;&#x9;response.setAccess_token(token);&#xD;&#xA;        &#x9;&#x9;response.setExpires_in(accessTokenTimeOut);&#xD;&#xA;        &#x9;&#x9;return new ResponseEntity(response, HttpStatus.OK);&#x9;&#xD;&#xA;        &#x9;}&#xD;&#xA;        }&#xD;&#xA;        &#xD;&#xA;        return new ResponseEntity(response, HttpStatus.PROXY_AUTHENTICATION_REQUIRED);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    @PostMapping(path=&quot;signin&quot;, consumes = {MediaType.APPLICATION_JSON_VALUE})&#xD;&#xA;    public ResponseEntity&lt;TokenResponse> signin(@RequestBody LoginRequestDTO login) {&#xD;&#xA;        TokenResponse response = new TokenResponse();&#xD;&#xA;        if(login.getUsername() != null &amp;&amp; !login.getUsername().isEmpty() &amp;&amp; login.getUsername().toUpperCase().equals(username.toUpperCase())) {&#xD;&#xA;        &#x9;&#xD;&#xA;        &#x9;if(login.getPassword() != null &amp;&amp; !login.getPassword().isEmpty() &amp;&amp; login.getPassword().equals(password)) {&#xD;&#xA;        &#x9;&#x9;String token = getJWTToken(login.getUsername());&#xD;&#xA;        &#x9;&#x9;response.setAccess_token(token);&#xD;&#xA;        &#x9;&#x9;response.setExpires_in(accessTokenTimeOut);&#xD;&#xA;        &#x9;&#x9;return new ResponseEntity(response, HttpStatus.OK);&#x9;&#xD;&#xA;        &#x9;}&#xD;&#xA;        }&#xD;&#xA;        &#xD;&#xA;        return new ResponseEntity(response, HttpStatus.PROXY_AUTHENTICATION_REQUIRED);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    private String getJWTToken(String name) {&#xD;&#xA;    &#x9;String token =jwtTokenUtil.generateToken(name);&#xD;&#xA;    &#x9;return token;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:OperationCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp">
@@ -157,7 +169,7 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".conf;&#xD;&#xA;&#xD;&#xA;import java.io.IOException;&#xD;&#xA;import java.util.Arrays;&#xD;&#xA;import java.util.Collection;&#xD;&#xA;import java.util.stream.Collectors;&#xD;&#xA;&#xD;&#xA;import javax.servlet.FilterChain;&#xD;&#xA;import javax.servlet.ServletException;&#xD;&#xA;import javax.servlet.http.HttpServletRequest;&#xD;&#xA;import javax.servlet.http.HttpServletResponse;&#xD;&#xA;&#xD;&#xA;import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;&#xD;&#xA;import org.springframework.security.core.authority.SimpleGrantedAuthority;&#xD;&#xA;import org.springframework.security.core.context.SecurityContextHolder;&#xD;&#xA;import org.springframework.stereotype.Component;&#xD;&#xA;import org.springframework.web.filter.OncePerRequestFilter;&#xD;&#xA;&#xD;&#xA;import io.jsonwebtoken.Claims;&#xD;&#xA;import io.jsonwebtoken.ExpiredJwtException;&#xD;&#xA;import lombok.RequiredArgsConstructor;&#xD;&#xA;&#xD;&#xA;@Component&#xD;&#xA;//@Profile(Profiles.RELEASE)&#xD;&#xA;@RequiredArgsConstructor&#xD;&#xA;public class JWTAuthorizationFilter extends OncePerRequestFilter {&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;private final JwtTokenUtil jwtTokenUtil;&#xD;&#xA;&#xD;&#xA;&#x9;public static String clientId;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;@Override&#xD;&#xA;&#x9;protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)&#xD;&#xA;&#x9;&#x9;&#x9;throws ServletException, IOException {&#xD;&#xA;&#x9;&#x9;this.validateToken(request, response, chain);&#xD;&#xA;&#x9;&#x9;chain.doFilter(request, response);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;private void validateToken(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {&#xD;&#xA;&#x9;&#x9;final String requestTokenHeader = request.getHeader(&quot;Authorization&quot;);&#xD;&#xA;        String username = null;&#xD;&#xA;        String jwtToken = null;&#xD;&#xA;        // JWT Token is in the form &quot;Bearer token&quot;. Remove Bearer word and get&#xD;&#xA;        // only the Token&#xD;&#xA;        if (requestTokenHeader != null) {&#xD;&#xA;            if (requestTokenHeader.startsWith(&quot;Bearer &quot;)) {&#xD;&#xA;                jwtToken = requestTokenHeader.substring(7);&#xD;&#xA;                try {&#xD;&#xA;                    username = jwtTokenUtil.getUsernameFromToken(jwtToken);&#xD;&#xA;                } catch (IllegalArgumentException e) {&#xD;&#xA;                    System.out.println(&quot;Unable to get JWT Token&quot;);&#xD;&#xA;                } catch (ExpiredJwtException e) {&#xD;&#xA;                    System.out.println(&quot;JWT Token has expired&quot;);&#xD;&#xA;                }&#xD;&#xA;            } else {&#xD;&#xA;                logger.warn(&quot;JWT Token does not begin with Bearer String&quot;);&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;        // Once we get the token validate it.&#xD;&#xA;        if (username != null &amp;&amp; SecurityContextHolder.getContext().getAuthentication() == null ) {&#xD;&#xA;            //UserDetails userDetails = this.jwtUserDetailsService.loadUserByUsername(username);&#xD;&#xA;            // if token is valid configure Spring Security to manually set&#xD;&#xA;            // authentication&#xD;&#xA;            if (jwtTokenUtil.validateToken(jwtToken) != null) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Claims claims = jwtTokenUtil.validateToken(jwtToken);&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;setUpSpringAuthentication(claims, Role.USER);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;} &#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * Metodo para autenticarnos dentro del flujo de Spring&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @param claims&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setUpSpringAuthentication(Claims claims, String roles) {&#xD;&#xA;&#x9;&#x9;SecurityContextHolder.getContext().setAuthentication(getAuthentication(claims.getSubject(), roles));&#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;public UsernamePasswordAuthenticationToken getAuthentication(final String username, final String roles) {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;final Collection&lt;SimpleGrantedAuthority> authorities = Arrays.stream(roles.split(&quot;,&quot;))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.map(SimpleGrantedAuthority::new).collect(Collectors.toList());&#xD;&#xA;&#x9;&#x9;return new UsernamePasswordAuthenticationToken(username, &quot;&quot;, authorities);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".conf;&#xD;&#xA;&#xD;&#xA;import java.io.IOException;&#xD;&#xA;import java.util.Arrays;&#xD;&#xA;import java.util.Collection;&#xD;&#xA;import java.util.stream.Collectors;&#xD;&#xA;&#xD;&#xA;import javax.servlet.FilterChain;&#xD;&#xA;import javax.servlet.ServletException;&#xD;&#xA;import javax.servlet.http.HttpServletRequest;&#xD;&#xA;import javax.servlet.http.HttpServletResponse;&#xD;&#xA;&#xD;&#xA;import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;&#xD;&#xA;import org.springframework.security.core.authority.SimpleGrantedAuthority;&#xD;&#xA;import org.springframework.security.core.context.SecurityContextHolder;&#xD;&#xA;import org.springframework.stereotype.Component;&#xD;&#xA;import org.springframework.web.filter.OncePerRequestFilter;&#xD;&#xA;&#xD;&#xA;import io.jsonwebtoken.Claims;&#xD;&#xA;import io.jsonwebtoken.ExpiredJwtException;&#xD;&#xA;import lombok.RequiredArgsConstructor;&#xD;&#xA;&#xD;&#xA;@Component&#xD;&#xA;@RequiredArgsConstructor&#xD;&#xA;public class JWTAuthorizationFilter extends OncePerRequestFilter {&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;private final JwtTokenUtil jwtTokenUtil;&#xD;&#xA;&#xD;&#xA;&#x9;public static String clientId;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;@Override&#xD;&#xA;&#x9;protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)&#xD;&#xA;&#x9;&#x9;&#x9;throws ServletException, IOException {&#xD;&#xA;&#x9;&#x9;this.validateToken(request, response, chain);&#xD;&#xA;&#x9;&#x9;chain.doFilter(request, response);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;private void validateToken(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {&#xD;&#xA;&#x9;&#x9;final String requestTokenHeader = request.getHeader(&quot;Authorization&quot;);&#xD;&#xA;        String username = null;&#xD;&#xA;        String jwtToken = null;&#xD;&#xA;        // JWT Token is in the form &quot;Bearer token&quot;. Remove Bearer word and get&#xD;&#xA;        // only the Token&#xD;&#xA;        if (requestTokenHeader != null) {&#xD;&#xA;            if (requestTokenHeader.startsWith(&quot;Bearer &quot;)) {&#xD;&#xA;                jwtToken = requestTokenHeader.substring(7);&#xD;&#xA;                try {&#xD;&#xA;                    username = jwtTokenUtil.getUsernameFromToken(jwtToken);&#xD;&#xA;                } catch (IllegalArgumentException e) {&#xD;&#xA;                    System.out.println(&quot;Unable to get JWT Token&quot;);&#xD;&#xA;                } catch (ExpiredJwtException e) {&#xD;&#xA;                    System.out.println(&quot;JWT Token has expired&quot;);&#xD;&#xA;                }&#xD;&#xA;            } else {&#xD;&#xA;                logger.warn(&quot;JWT Token does not begin with Bearer String&quot;);&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;        // Once we get the token validate it.&#xD;&#xA;        if (username != null &amp;&amp; SecurityContextHolder.getContext().getAuthentication() == null ) {&#xD;&#xA;            //UserDetails userDetails = this.jwtUserDetailsService.loadUserByUsername(username);&#xD;&#xA;            // if token is valid configure Spring Security to manually set&#xD;&#xA;            // authentication&#xD;&#xA;            if (jwtTokenUtil.validateToken(jwtToken) != null) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Claims claims = jwtTokenUtil.validateToken(jwtToken);&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;setUpSpringAuthentication(claims, Role.USER);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;} &#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * Metodo para autenticarnos dentro del flujo de Spring&#xD;&#xA;&#x9; *&#xD;&#xA;&#x9; * @param claims&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setUpSpringAuthentication(Claims claims, String roles) {&#xD;&#xA;&#x9;&#x9;SecurityContextHolder.getContext().setAuthentication(getAuthentication(claims.getSubject(), roles));&#xD;&#xA;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;public UsernamePasswordAuthenticationToken getAuthentication(final String username, final String roles) {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;final Collection&lt;SimpleGrantedAuthority> authorities = Arrays.stream(roles.split(&quot;,&quot;))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.map(SimpleGrantedAuthority::new).collect(Collectors.toList());&#xD;&#xA;&#x9;&#x9;return new UsernamePasswordAuthenticationToken(username, &quot;&quot;, authorities);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:OperationCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp">
@@ -227,7 +239,7 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".conf;&#xD;&#xA;&#xD;&#xA;import java.io.Serializable;&#xD;&#xA;import java.util.Base64;&#xD;&#xA;import java.util.Date;&#xD;&#xA;import java.util.function.Function;&#xD;&#xA;&#xD;&#xA;import org.springframework.beans.factory.annotation.Value;&#xD;&#xA;import org.springframework.stereotype.Component;&#xD;&#xA;&#xD;&#xA;import "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".conf;&#xD;&#xA;&#xD;&#xA;import java.io.Serializable;&#xD;&#xA;import java.util.Base64;&#xD;&#xA;import java.util.Date;&#xD;&#xA;import java.util.List;&#xD;&#xA;import java.util.function.Function;&#xD;&#xA;&#xD;&#xA;import org.springframework.beans.factory.annotation.Value;&#xD;&#xA;import org.springframework.stereotype.Component;&#xD;&#xA;&#xD;&#xA;import "/>
         <body xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -251,7 +263,7 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".exceptions.ApiException;&#xD;&#xA;import io.jsonwebtoken.Claims;&#xD;&#xA;import io.jsonwebtoken.Jwts;&#xD;&#xA;import io.jsonwebtoken.SignatureAlgorithm;&#xD;&#xA;&#xD;&#xA;@Component&#xD;&#xA;public class JwtTokenUtil implements Serializable {&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${jwt.token.timeOut}&quot;)&#xD;&#xA;&#x9;public long accessTokenTimeOut; // 60 segundos * 30 minutos&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${jwt.token.secret}&quot;)&#xD;&#xA;&#x9;public String accessTokenSecret;&#xD;&#xA;&#xD;&#xA;&#x9;public String getUsernameFromToken(String token) {&#xD;&#xA;&#x9;&#x9;return getClaimFromToken(token, Claims::getSubject);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;public Date getExpirationDateFromToken(String token) {&#xD;&#xA;&#x9;&#x9;return getClaimFromToken(token, Claims::getExpiration);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;public &lt;T> T getClaimFromToken(String token, Function&lt;Claims, T> claimsResolver) {&#xD;&#xA;&#x9;&#x9;final Claims claims = getAllClaimsFromToken(token);&#xD;&#xA;&#x9;&#x9;return claimsResolver.apply(claims);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;private Claims getAllClaimsFromToken(String token) {&#xD;&#xA;&#x9;&#x9;return Jwts.parser().setSigningKey(accessTokenSecret).parseClaimsJws(token).getBody();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;private Boolean isTokenExpired(String token) {&#xD;&#xA;&#x9;&#x9;final Date expiration = getExpirationDateFromToken(token);&#xD;&#xA;&#x9;&#x9;return expiration.before(new Date());&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;public String generateToken(String name) {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;Claims claims = Jwts.claims().setSubject(name);&#xD;&#xA;&#x9;&#x9;claims.put(&quot;admin&quot;, &quot;true&quot;);&#xD;&#xA;&#x9;&#x9;claims.put(&quot;name&quot;,name);&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;return Jwts.builder().setClaims(claims).setIssuer(&quot;https://site.com&quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.setIssuedAt(new Date(System.currentTimeMillis()))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.setExpiration(new Date(System.currentTimeMillis() + accessTokenTimeOut * 1000))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.signWith(SignatureAlgorithm.HS256, accessTokenSecret).compact();&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;public Claims validateToken(String token) {&#xD;&#xA;&#x9;&#x9;try {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;Claims claims = getAllClaimsFromToken(token);&#xD;&#xA;&#x9;&#x9;&#x9;if (!isTokenExpired(token)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return claims;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;throw new ApiException(ErrorEnum.TECHNICAL,e.getMessage());&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".exceptions.ApiException;&#xD;&#xA;import io.jsonwebtoken.Claims;&#xD;&#xA;import io.jsonwebtoken.Jwts;&#xD;&#xA;import io.jsonwebtoken.SignatureAlgorithm;&#xD;&#xA;&#xD;&#xA;@Component&#xD;&#xA;public class JwtTokenUtil implements Serializable {&#xD;&#xA;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${jwt.token.timeOut}&quot;)&#xD;&#xA;&#x9;public long accessTokenTimeOut; // 60 segundos * 30 minutos&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Value(&quot;${jwt.token.secret}&quot;)&#xD;&#xA;&#x9;public String accessTokenSecret;&#xD;&#xA;&#xD;&#xA;&#x9;@Value(&quot;${jwt.token.iss}&quot;)&#xD;&#xA;&#x9;public String iss;&#xD;&#xA;&#xD;&#xA;&#x9;public String getUsernameFromToken(String token) {&#xD;&#xA;&#x9;&#x9;return getClaimFromToken(token, Claims::getSubject);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;public Date getExpirationDateFromToken(String token) {&#xD;&#xA;&#x9;&#x9;return getClaimFromToken(token, Claims::getExpiration);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;public &lt;T> T getClaimFromToken(String token, Function&lt;Claims, T> claimsResolver) {&#xD;&#xA;&#x9;&#x9;final Claims claims = getAllClaimsFromToken(token);&#xD;&#xA;&#x9;&#x9;return claimsResolver.apply(claims);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;private Claims getAllClaimsFromToken(String token) {&#xD;&#xA;&#x9;&#x9;return Jwts.parser().setSigningKey(accessTokenSecret).parseClaimsJws(token).getBody();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;private Boolean isTokenExpired(String token) {&#xD;&#xA;&#x9;&#x9;final Date expiration = getExpirationDateFromToken(token);&#xD;&#xA;&#x9;&#x9;return expiration.before(new Date());&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;public String generateToken(String name) {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;Claims claims = Jwts.claims().setSubject(name);&#xD;&#xA;&#x9;&#x9;claims.put(&quot;name&quot;,name);&#xD;&#xA;&#x9;&#x9;claims.put(&quot;scopes&quot;,List.of(&quot;user&quot;));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;return Jwts.builder().setClaims(claims).setIssuer(iss)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.setIssuedAt(new Date(System.currentTimeMillis()))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.setExpiration(new Date(System.currentTimeMillis() + accessTokenTimeOut * 1000))&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.signWith(SignatureAlgorithm.HS256, accessTokenSecret).compact();&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;public Claims validateToken(String token) {&#xD;&#xA;&#x9;&#x9;try {&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;Claims claims = getAllClaimsFromToken(token);&#xD;&#xA;&#x9;&#x9;&#x9;if (!isTokenExpired(token)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return claims;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;} catch (Exception e) {&#xD;&#xA;&#x9;&#x9;&#x9;throw new ApiException(ErrorEnum.TECHNICAL,e.getMessage());&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return null;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:OperationCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp">
@@ -367,76 +379,6 @@
               </argument>
             </source>
             <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/conf/WebSecurityConfig.java">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            </argument>
-            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
-          </argument>
-          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
-        </fileUrl>
-        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        </charset>
-      </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
-      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="package "/>
-        <body xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <source xsi:type="ocl.ecore:PropertyCallExp">
-            <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
-            <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
-              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
-            </source>
-            <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
-          </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".conf;&#xD;&#xA;public class Profiles {&#xD;&#xA; &#xD;&#xA;    private Profiles() {&#xD;&#xA;    }&#xD;&#xA; &#xD;&#xA;    public static final String RELEASE = &quot;release&quot;;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;"/>
-        <fileUrl xsi:type="ocl.ecore:OperationCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <source xsi:type="ocl.ecore:OperationCallExp">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="mtl:QueryInvocation">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="util.emtl#/0/getAppName"/>
-              <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
-                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
-              </argument>
-              <argument xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
-                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/name"/>
-              </argument>
-            </source>
-            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/src/main/java/">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            </argument>
-            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
-          </source>
-          <argument xsi:type="ocl.ecore:OperationCallExp">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="mtl:QueryInvocation">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="util.emtl#/0/getDirectory"/>
-              <argument xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
-                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
-              </argument>
-            </source>
-            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/conf/Profiles.java">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </argument>
             <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
@@ -658,6 +600,76 @@
         </charset>
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="package "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
+              <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".dto;&#xD;&#xA;&#xD;&#xA;import lombok.AllArgsConstructor;&#xD;&#xA;import lombok.Builder;&#xD;&#xA;import lombok.Data;&#xD;&#xA;import lombok.NoArgsConstructor;&#xD;&#xA;import lombok.ToString;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;@AllArgsConstructor&#xD;&#xA;@NoArgsConstructor&#xD;&#xA;@ToString&#xD;&#xA;@Builder&#xD;&#xA;@Data&#xD;&#xA;public class LoginRequestDTO{&#xD;&#xA;&#x9;private String username;&#xD;&#xA;    private String password;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="util.emtl#/0/getAppName"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
+                <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/name"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/src/main/java/">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+          </source>
+          <argument xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="util.emtl#/0/getDirectory"/>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://com/microservice#//Microservice"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="aGenerator" referredVariable="/0/generateJavaSecurity/aGenerator">
+                    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://com/microservice#//Generator/microservice"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://com/microservice#//Microservice/package"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/dto/LoginRequestDTO.java">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <parameter name="aGenerator">
         <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
       </parameter>
@@ -858,12 +870,15 @@
     <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://com/microservice#//Generator"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateJavaSecurity">
       <details key="start" value="152"/>
-      <details key="end" value="13053"/>
+      <details key="end" value="14199"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateJavaSecurity/%">
@@ -873,7 +888,7 @@
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateJavaSecurity/%.1">
       <details key="start" value="218"/>
-      <details key="end" value="3157"/>
+      <details key="end" value="4071"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateJavaSecurity/%.1/%">
@@ -978,930 +993,950 @@
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/generateJavaSecurity/%.1/%.10">
       <details key="start" value="1220"/>
-      <details key="end" value="1560"/>
+      <details key="end" value="1248"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/generateJavaSecurity/%.1/%.11">
-      <details key="start" value="1561"/>
-      <details key="end" value="1612"/>
+      <details key="start" value="1249"/>
+      <details key="end" value="1281"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/generateJavaSecurity/%.1/%.11/aGenerator">
-      <details key="start" value="1572"/>
-      <details key="end" value="1582"/>
+    <eAnnotations source="positions.25" references="/0/generateJavaSecurity/%.1/%.11/%">
+      <details key="start" value="1249"/>
+      <details key="end" value="1272"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/generateJavaSecurity/%.1/%.11/%">
-      <details key="start" value="1583"/>
-      <details key="end" value="1611"/>
+    <eAnnotations source="positions.26" references="/0/generateJavaSecurity/%.1/%.11/%/aGenerator">
+      <details key="start" value="1249"/>
+      <details key="end" value="1259"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/generateJavaSecurity/%.1/%.11/%/%">
-      <details key="start" value="1583"/>
-      <details key="end" value="1606"/>
+    <eAnnotations source="positions.27" references="/0/generateJavaSecurity/%.1/%.12">
+      <details key="start" value="1283"/>
+      <details key="end" value="1625"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateJavaSecurity/%.1/%.13">
+      <details key="start" value="1626"/>
+      <details key="end" value="1677"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.28" references="/0/generateJavaSecurity/%.1/%.11/%/%/aGenerator">
-      <details key="start" value="1583"/>
-      <details key="end" value="1593"/>
+    <eAnnotations source="positions.29" references="/0/generateJavaSecurity/%.1/%.13/aGenerator">
+      <details key="start" value="1637"/>
+      <details key="end" value="1647"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.29" references="/0/generateJavaSecurity/%.1/%.12">
-      <details key="start" value="1614"/>
-      <details key="end" value="3150"/>
-      <details key="line" value="34"/>
+    <eAnnotations source="positions.30" references="/0/generateJavaSecurity/%.1/%.13/%">
+      <details key="start" value="1648"/>
+      <details key="end" value="1676"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.30" references="/0/generateJavaSecurity/%.1/%.13">
+    <eAnnotations source="positions.31" references="/0/generateJavaSecurity/%.1/%.13/%/%">
+      <details key="start" value="1648"/>
+      <details key="end" value="1671"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateJavaSecurity/%.1/%.13/%/%/aGenerator">
+      <details key="start" value="1648"/>
+      <details key="end" value="1658"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateJavaSecurity/%.1/%.14">
+      <details key="start" value="1679"/>
+      <details key="end" value="4064"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateJavaSecurity/%.1/%.15">
       <details key="start" value="225"/>
       <details key="end" value="392"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.31" references="/0/generateJavaSecurity/%.1/%.13/%">
+    <eAnnotations source="positions.35" references="/0/generateJavaSecurity/%.1/%.15/%">
       <details key="start" value="225"/>
       <details key="end" value="302"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.32" references="/0/generateJavaSecurity/%.1/%.13/%/%">
+    <eAnnotations source="positions.36" references="/0/generateJavaSecurity/%.1/%.15/%/%">
       <details key="start" value="225"/>
       <details key="end" value="276"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.33" references="/0/generateJavaSecurity/%.1/%.13/%/%/aGenerator">
+    <eAnnotations source="positions.37" references="/0/generateJavaSecurity/%.1/%.15/%/%/aGenerator">
       <details key="start" value="236"/>
       <details key="end" value="246"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.34" references="/0/generateJavaSecurity/%.1/%.13/%/%/%">
+    <eAnnotations source="positions.38" references="/0/generateJavaSecurity/%.1/%.15/%/%/%">
       <details key="start" value="247"/>
       <details key="end" value="275"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.35" references="/0/generateJavaSecurity/%.1/%.13/%/%/%/%">
+    <eAnnotations source="positions.39" references="/0/generateJavaSecurity/%.1/%.15/%/%/%/%">
       <details key="start" value="247"/>
       <details key="end" value="270"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.36" references="/0/generateJavaSecurity/%.1/%.13/%/%/%/%/aGenerator">
+    <eAnnotations source="positions.40" references="/0/generateJavaSecurity/%.1/%.15/%/%/%/%/aGenerator">
       <details key="start" value="247"/>
       <details key="end" value="257"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.37" references="/0/generateJavaSecurity/%.1/%.13/%/%.1">
+    <eAnnotations source="positions.41" references="/0/generateJavaSecurity/%.1/%.15/%/%.1">
       <details key="start" value="284"/>
       <details key="end" value="301"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.38" references="/0/generateJavaSecurity/%.1/%.13/%.1">
+    <eAnnotations source="positions.42" references="/0/generateJavaSecurity/%.1/%.15/%.1">
       <details key="start" value="310"/>
       <details key="end" value="391"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.39" references="/0/generateJavaSecurity/%.1/%.13/%.1/%">
+    <eAnnotations source="positions.43" references="/0/generateJavaSecurity/%.1/%.15/%.1/%">
       <details key="start" value="310"/>
       <details key="end" value="356"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.40" references="/0/generateJavaSecurity/%.1/%.13/%.1/%/%">
+    <eAnnotations source="positions.44" references="/0/generateJavaSecurity/%.1/%.15/%.1/%/%">
       <details key="start" value="323"/>
       <details key="end" value="355"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.41" references="/0/generateJavaSecurity/%.1/%.13/%.1/%/%/%">
+    <eAnnotations source="positions.45" references="/0/generateJavaSecurity/%.1/%.15/%.1/%/%/%">
       <details key="start" value="323"/>
       <details key="end" value="346"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.42" references="/0/generateJavaSecurity/%.1/%.13/%.1/%/%/%/aGenerator">
+    <eAnnotations source="positions.46" references="/0/generateJavaSecurity/%.1/%.15/%.1/%/%/%/aGenerator">
       <details key="start" value="323"/>
       <details key="end" value="333"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.43" references="/0/generateJavaSecurity/%.1/%.13/%.1/%.1">
+    <eAnnotations source="positions.47" references="/0/generateJavaSecurity/%.1/%.15/%.1/%.1">
       <details key="start" value="364"/>
       <details key="end" value="390"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.44" references="/0/generateJavaSecurity/%.1/%.14">
+    <eAnnotations source="positions.48" references="/0/generateJavaSecurity/%.1/%.16">
       <details key="start" value="401"/>
       <details key="end" value="408"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.45" references="/0/generateJavaSecurity/%.2">
-      <details key="start" value="3159"/>
-      <details key="end" value="3163"/>
-      <details key="line" value="78"/>
+    <eAnnotations source="positions.49" references="/0/generateJavaSecurity/%.2">
+      <details key="start" value="4073"/>
+      <details key="end" value="4077"/>
+      <details key="line" value="95"/>
     </eAnnotations>
-    <eAnnotations source="positions.46" references="/0/generateJavaSecurity/%.3">
-      <details key="start" value="3163"/>
-      <details key="end" value="6911"/>
-      <details key="line" value="80"/>
+    <eAnnotations source="positions.50" references="/0/generateJavaSecurity/%.3">
+      <details key="start" value="4077"/>
+      <details key="end" value="7795"/>
+      <details key="line" value="97"/>
     </eAnnotations>
-    <eAnnotations source="positions.47" references="/0/generateJavaSecurity/%.3/%">
-      <details key="start" value="3366"/>
-      <details key="end" value="3374"/>
-      <details key="line" value="81"/>
+    <eAnnotations source="positions.51" references="/0/generateJavaSecurity/%.3/%">
+      <details key="start" value="4280"/>
+      <details key="end" value="4288"/>
+      <details key="line" value="98"/>
     </eAnnotations>
-    <eAnnotations source="positions.48" references="/0/generateJavaSecurity/%.3/%.1">
-      <details key="start" value="3375"/>
-      <details key="end" value="3407"/>
+    <eAnnotations source="positions.52" references="/0/generateJavaSecurity/%.3/%.1">
+      <details key="start" value="4289"/>
+      <details key="end" value="4321"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.49" references="/0/generateJavaSecurity/%.3/%.1/%">
-      <details key="start" value="3375"/>
-      <details key="end" value="3398"/>
+    <eAnnotations source="positions.53" references="/0/generateJavaSecurity/%.3/%.1/%">
+      <details key="start" value="4289"/>
+      <details key="end" value="4312"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.50" references="/0/generateJavaSecurity/%.3/%.1/%/aGenerator">
-      <details key="start" value="3375"/>
-      <details key="end" value="3385"/>
+    <eAnnotations source="positions.54" references="/0/generateJavaSecurity/%.3/%.1/%/aGenerator">
+      <details key="start" value="4289"/>
+      <details key="end" value="4299"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.51" references="/0/generateJavaSecurity/%.3/%.2">
-      <details key="start" value="3409"/>
-      <details key="end" value="6904"/>
-      <details key="line" value="81"/>
+    <eAnnotations source="positions.55" references="/0/generateJavaSecurity/%.3/%.2">
+      <details key="start" value="4323"/>
+      <details key="end" value="7788"/>
+      <details key="line" value="98"/>
     </eAnnotations>
-    <eAnnotations source="positions.52" references="/0/generateJavaSecurity/%.3/%.3">
-      <details key="start" value="3170"/>
-      <details key="end" value="3346"/>
+    <eAnnotations source="positions.56" references="/0/generateJavaSecurity/%.3/%.3">
+      <details key="start" value="4084"/>
+      <details key="end" value="4260"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.53" references="/0/generateJavaSecurity/%.3/%.3/%">
-      <details key="start" value="3170"/>
-      <details key="end" value="3247"/>
+    <eAnnotations source="positions.57" references="/0/generateJavaSecurity/%.3/%.3/%">
+      <details key="start" value="4084"/>
+      <details key="end" value="4161"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.54" references="/0/generateJavaSecurity/%.3/%.3/%/%">
-      <details key="start" value="3170"/>
-      <details key="end" value="3221"/>
+    <eAnnotations source="positions.58" references="/0/generateJavaSecurity/%.3/%.3/%/%">
+      <details key="start" value="4084"/>
+      <details key="end" value="4135"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.55" references="/0/generateJavaSecurity/%.3/%.3/%/%/aGenerator">
-      <details key="start" value="3181"/>
-      <details key="end" value="3191"/>
+    <eAnnotations source="positions.59" references="/0/generateJavaSecurity/%.3/%.3/%/%/aGenerator">
+      <details key="start" value="4095"/>
+      <details key="end" value="4105"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.56" references="/0/generateJavaSecurity/%.3/%.3/%/%/%">
-      <details key="start" value="3192"/>
-      <details key="end" value="3220"/>
+    <eAnnotations source="positions.60" references="/0/generateJavaSecurity/%.3/%.3/%/%/%">
+      <details key="start" value="4106"/>
+      <details key="end" value="4134"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.57" references="/0/generateJavaSecurity/%.3/%.3/%/%/%/%">
-      <details key="start" value="3192"/>
-      <details key="end" value="3215"/>
+    <eAnnotations source="positions.61" references="/0/generateJavaSecurity/%.3/%.3/%/%/%/%">
+      <details key="start" value="4106"/>
+      <details key="end" value="4129"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.58" references="/0/generateJavaSecurity/%.3/%.3/%/%/%/%/aGenerator">
-      <details key="start" value="3192"/>
-      <details key="end" value="3202"/>
+    <eAnnotations source="positions.62" references="/0/generateJavaSecurity/%.3/%.3/%/%/%/%/aGenerator">
+      <details key="start" value="4106"/>
+      <details key="end" value="4116"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.59" references="/0/generateJavaSecurity/%.3/%.3/%/%.1">
-      <details key="start" value="3229"/>
-      <details key="end" value="3246"/>
+    <eAnnotations source="positions.63" references="/0/generateJavaSecurity/%.3/%.3/%/%.1">
+      <details key="start" value="4143"/>
+      <details key="end" value="4160"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.60" references="/0/generateJavaSecurity/%.3/%.3/%.1">
-      <details key="start" value="3255"/>
-      <details key="end" value="3345"/>
+    <eAnnotations source="positions.64" references="/0/generateJavaSecurity/%.3/%.3/%.1">
+      <details key="start" value="4169"/>
+      <details key="end" value="4259"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.61" references="/0/generateJavaSecurity/%.3/%.3/%.1/%">
-      <details key="start" value="3255"/>
-      <details key="end" value="3301"/>
+    <eAnnotations source="positions.65" references="/0/generateJavaSecurity/%.3/%.3/%.1/%">
+      <details key="start" value="4169"/>
+      <details key="end" value="4215"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.62" references="/0/generateJavaSecurity/%.3/%.3/%.1/%/%">
-      <details key="start" value="3268"/>
-      <details key="end" value="3300"/>
+    <eAnnotations source="positions.66" references="/0/generateJavaSecurity/%.3/%.3/%.1/%/%">
+      <details key="start" value="4182"/>
+      <details key="end" value="4214"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.63" references="/0/generateJavaSecurity/%.3/%.3/%.1/%/%/%">
-      <details key="start" value="3268"/>
-      <details key="end" value="3291"/>
+    <eAnnotations source="positions.67" references="/0/generateJavaSecurity/%.3/%.3/%.1/%/%/%">
+      <details key="start" value="4182"/>
+      <details key="end" value="4205"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.64" references="/0/generateJavaSecurity/%.3/%.3/%.1/%/%/%/aGenerator">
-      <details key="start" value="3268"/>
-      <details key="end" value="3278"/>
+    <eAnnotations source="positions.68" references="/0/generateJavaSecurity/%.3/%.3/%.1/%/%/%/aGenerator">
+      <details key="start" value="4182"/>
+      <details key="end" value="4192"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.65" references="/0/generateJavaSecurity/%.3/%.3/%.1/%.1">
-      <details key="start" value="3309"/>
-      <details key="end" value="3344"/>
+    <eAnnotations source="positions.69" references="/0/generateJavaSecurity/%.3/%.3/%.1/%.1">
+      <details key="start" value="4223"/>
+      <details key="end" value="4258"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.66" references="/0/generateJavaSecurity/%.3/%.4">
-      <details key="start" value="3355"/>
-      <details key="end" value="3362"/>
+    <eAnnotations source="positions.70" references="/0/generateJavaSecurity/%.3/%.4">
+      <details key="start" value="4269"/>
+      <details key="end" value="4276"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.67" references="/0/generateJavaSecurity/%.4">
-      <details key="start" value="6913"/>
-      <details key="end" value="6915"/>
-      <details key="line" value="177"/>
+    <eAnnotations source="positions.71" references="/0/generateJavaSecurity/%.4">
+      <details key="start" value="7797"/>
+      <details key="end" value="7799"/>
+      <details key="line" value="193"/>
     </eAnnotations>
-    <eAnnotations source="positions.68" references="/0/generateJavaSecurity/%.5">
-      <details key="start" value="6915"/>
-      <details key="end" value="9351"/>
-      <details key="line" value="178"/>
+    <eAnnotations source="positions.72" references="/0/generateJavaSecurity/%.5">
+      <details key="start" value="7799"/>
+      <details key="end" value="10305"/>
+      <details key="line" value="194"/>
     </eAnnotations>
-    <eAnnotations source="positions.69" references="/0/generateJavaSecurity/%.5/%">
-      <details key="start" value="7108"/>
-      <details key="end" value="7116"/>
-      <details key="line" value="179"/>
+    <eAnnotations source="positions.73" references="/0/generateJavaSecurity/%.5/%">
+      <details key="start" value="7992"/>
+      <details key="end" value="8000"/>
+      <details key="line" value="195"/>
     </eAnnotations>
-    <eAnnotations source="positions.70" references="/0/generateJavaSecurity/%.5/%.1">
-      <details key="start" value="7117"/>
-      <details key="end" value="7149"/>
+    <eAnnotations source="positions.74" references="/0/generateJavaSecurity/%.5/%.1">
+      <details key="start" value="8001"/>
+      <details key="end" value="8033"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.71" references="/0/generateJavaSecurity/%.5/%.1/%">
-      <details key="start" value="7117"/>
-      <details key="end" value="7140"/>
+    <eAnnotations source="positions.75" references="/0/generateJavaSecurity/%.5/%.1/%">
+      <details key="start" value="8001"/>
+      <details key="end" value="8024"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.72" references="/0/generateJavaSecurity/%.5/%.1/%/aGenerator">
-      <details key="start" value="7117"/>
-      <details key="end" value="7127"/>
+    <eAnnotations source="positions.76" references="/0/generateJavaSecurity/%.5/%.1/%/aGenerator">
+      <details key="start" value="8001"/>
+      <details key="end" value="8011"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.73" references="/0/generateJavaSecurity/%.5/%.2">
-      <details key="start" value="7151"/>
-      <details key="end" value="7399"/>
-      <details key="line" value="179"/>
+    <eAnnotations source="positions.77" references="/0/generateJavaSecurity/%.5/%.2">
+      <details key="start" value="8035"/>
+      <details key="end" value="8307"/>
+      <details key="line" value="195"/>
     </eAnnotations>
-    <eAnnotations source="positions.74" references="/0/generateJavaSecurity/%.5/%.3">
-      <details key="start" value="7400"/>
-      <details key="end" value="7432"/>
+    <eAnnotations source="positions.78" references="/0/generateJavaSecurity/%.5/%.3">
+      <details key="start" value="8308"/>
+      <details key="end" value="8340"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.75" references="/0/generateJavaSecurity/%.5/%.3/%">
-      <details key="start" value="7400"/>
-      <details key="end" value="7423"/>
+    <eAnnotations source="positions.79" references="/0/generateJavaSecurity/%.5/%.3/%">
+      <details key="start" value="8308"/>
+      <details key="end" value="8331"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.76" references="/0/generateJavaSecurity/%.5/%.3/%/aGenerator">
-      <details key="start" value="7400"/>
-      <details key="end" value="7410"/>
+    <eAnnotations source="positions.80" references="/0/generateJavaSecurity/%.5/%.3/%/aGenerator">
+      <details key="start" value="8308"/>
+      <details key="end" value="8318"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.77" references="/0/generateJavaSecurity/%.5/%.4">
-      <details key="start" value="7434"/>
-      <details key="end" value="7460"/>
-      <details key="line" value="189"/>
+    <eAnnotations source="positions.81" references="/0/generateJavaSecurity/%.5/%.4">
+      <details key="start" value="8342"/>
+      <details key="end" value="8368"/>
+      <details key="line" value="206"/>
     </eAnnotations>
-    <eAnnotations source="positions.78" references="/0/generateJavaSecurity/%.5/%.5">
-      <details key="start" value="7461"/>
-      <details key="end" value="7493"/>
+    <eAnnotations source="positions.82" references="/0/generateJavaSecurity/%.5/%.5">
+      <details key="start" value="8369"/>
+      <details key="end" value="8401"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.79" references="/0/generateJavaSecurity/%.5/%.5/%">
-      <details key="start" value="7461"/>
-      <details key="end" value="7484"/>
+    <eAnnotations source="positions.83" references="/0/generateJavaSecurity/%.5/%.5/%">
+      <details key="start" value="8369"/>
+      <details key="end" value="8392"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.80" references="/0/generateJavaSecurity/%.5/%.5/%/aGenerator">
-      <details key="start" value="7461"/>
-      <details key="end" value="7471"/>
+    <eAnnotations source="positions.84" references="/0/generateJavaSecurity/%.5/%.5/%/aGenerator">
+      <details key="start" value="8369"/>
+      <details key="end" value="8379"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.81" references="/0/generateJavaSecurity/%.5/%.6">
-      <details key="start" value="7495"/>
-      <details key="end" value="9344"/>
-      <details key="line" value="190"/>
+    <eAnnotations source="positions.85" references="/0/generateJavaSecurity/%.5/%.6">
+      <details key="start" value="8403"/>
+      <details key="end" value="10298"/>
+      <details key="line" value="207"/>
     </eAnnotations>
-    <eAnnotations source="positions.82" references="/0/generateJavaSecurity/%.5/%.7">
-      <details key="start" value="6922"/>
-      <details key="end" value="7088"/>
+    <eAnnotations source="positions.86" references="/0/generateJavaSecurity/%.5/%.7">
+      <details key="start" value="7806"/>
+      <details key="end" value="7972"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.83" references="/0/generateJavaSecurity/%.5/%.7/%">
-      <details key="start" value="6922"/>
-      <details key="end" value="6999"/>
+    <eAnnotations source="positions.87" references="/0/generateJavaSecurity/%.5/%.7/%">
+      <details key="start" value="7806"/>
+      <details key="end" value="7883"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.84" references="/0/generateJavaSecurity/%.5/%.7/%/%">
-      <details key="start" value="6922"/>
-      <details key="end" value="6973"/>
+    <eAnnotations source="positions.88" references="/0/generateJavaSecurity/%.5/%.7/%/%">
+      <details key="start" value="7806"/>
+      <details key="end" value="7857"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.85" references="/0/generateJavaSecurity/%.5/%.7/%/%/aGenerator">
-      <details key="start" value="6933"/>
-      <details key="end" value="6943"/>
+    <eAnnotations source="positions.89" references="/0/generateJavaSecurity/%.5/%.7/%/%/aGenerator">
+      <details key="start" value="7817"/>
+      <details key="end" value="7827"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.86" references="/0/generateJavaSecurity/%.5/%.7/%/%/%">
-      <details key="start" value="6944"/>
-      <details key="end" value="6972"/>
+    <eAnnotations source="positions.90" references="/0/generateJavaSecurity/%.5/%.7/%/%/%">
+      <details key="start" value="7828"/>
+      <details key="end" value="7856"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.87" references="/0/generateJavaSecurity/%.5/%.7/%/%/%/%">
-      <details key="start" value="6944"/>
-      <details key="end" value="6967"/>
+    <eAnnotations source="positions.91" references="/0/generateJavaSecurity/%.5/%.7/%/%/%/%">
+      <details key="start" value="7828"/>
+      <details key="end" value="7851"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.88" references="/0/generateJavaSecurity/%.5/%.7/%/%/%/%/aGenerator">
-      <details key="start" value="6944"/>
-      <details key="end" value="6954"/>
+    <eAnnotations source="positions.92" references="/0/generateJavaSecurity/%.5/%.7/%/%/%/%/aGenerator">
+      <details key="start" value="7828"/>
+      <details key="end" value="7838"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.89" references="/0/generateJavaSecurity/%.5/%.7/%/%.1">
-      <details key="start" value="6981"/>
-      <details key="end" value="6998"/>
+    <eAnnotations source="positions.93" references="/0/generateJavaSecurity/%.5/%.7/%/%.1">
+      <details key="start" value="7865"/>
+      <details key="end" value="7882"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.90" references="/0/generateJavaSecurity/%.5/%.7/%.1">
-      <details key="start" value="7007"/>
-      <details key="end" value="7087"/>
+    <eAnnotations source="positions.94" references="/0/generateJavaSecurity/%.5/%.7/%.1">
+      <details key="start" value="7891"/>
+      <details key="end" value="7971"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.91" references="/0/generateJavaSecurity/%.5/%.7/%.1/%">
-      <details key="start" value="7007"/>
-      <details key="end" value="7053"/>
+    <eAnnotations source="positions.95" references="/0/generateJavaSecurity/%.5/%.7/%.1/%">
+      <details key="start" value="7891"/>
+      <details key="end" value="7937"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.92" references="/0/generateJavaSecurity/%.5/%.7/%.1/%/%">
-      <details key="start" value="7020"/>
-      <details key="end" value="7052"/>
+    <eAnnotations source="positions.96" references="/0/generateJavaSecurity/%.5/%.7/%.1/%/%">
+      <details key="start" value="7904"/>
+      <details key="end" value="7936"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.93" references="/0/generateJavaSecurity/%.5/%.7/%.1/%/%/%">
-      <details key="start" value="7020"/>
-      <details key="end" value="7043"/>
+    <eAnnotations source="positions.97" references="/0/generateJavaSecurity/%.5/%.7/%.1/%/%/%">
+      <details key="start" value="7904"/>
+      <details key="end" value="7927"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.94" references="/0/generateJavaSecurity/%.5/%.7/%.1/%/%/%/aGenerator">
-      <details key="start" value="7020"/>
-      <details key="end" value="7030"/>
+    <eAnnotations source="positions.98" references="/0/generateJavaSecurity/%.5/%.7/%.1/%/%/%/aGenerator">
+      <details key="start" value="7904"/>
+      <details key="end" value="7914"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.95" references="/0/generateJavaSecurity/%.5/%.7/%.1/%.1">
-      <details key="start" value="7061"/>
-      <details key="end" value="7086"/>
+    <eAnnotations source="positions.99" references="/0/generateJavaSecurity/%.5/%.7/%.1/%.1">
+      <details key="start" value="7945"/>
+      <details key="end" value="7970"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.96" references="/0/generateJavaSecurity/%.5/%.8">
-      <details key="start" value="7097"/>
-      <details key="end" value="7104"/>
+    <eAnnotations source="positions.100" references="/0/generateJavaSecurity/%.5/%.8">
+      <details key="start" value="7981"/>
+      <details key="end" value="7988"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.97" references="/0/generateJavaSecurity/%.6">
-      <details key="start" value="9353"/>
-      <details key="end" value="9355"/>
-      <details key="line" value="256"/>
+    <eAnnotations source="positions.101" references="/0/generateJavaSecurity/%.6">
+      <details key="start" value="10307"/>
+      <details key="end" value="10309"/>
+      <details key="line" value="276"/>
     </eAnnotations>
-    <eAnnotations source="positions.98" references="/0/generateJavaSecurity/%.7">
-      <details key="start" value="9355"/>
-      <details key="end" value="11063"/>
-      <details key="line" value="257"/>
+    <eAnnotations source="positions.102" references="/0/generateJavaSecurity/%.7">
+      <details key="start" value="10309"/>
+      <details key="end" value="12017"/>
+      <details key="line" value="277"/>
     </eAnnotations>
-    <eAnnotations source="positions.99" references="/0/generateJavaSecurity/%.7/%">
-      <details key="start" value="9553"/>
-      <details key="end" value="9561"/>
-      <details key="line" value="258"/>
+    <eAnnotations source="positions.103" references="/0/generateJavaSecurity/%.7/%">
+      <details key="start" value="10507"/>
+      <details key="end" value="10515"/>
+      <details key="line" value="278"/>
     </eAnnotations>
-    <eAnnotations source="positions.100" references="/0/generateJavaSecurity/%.7/%.1">
-      <details key="start" value="9562"/>
-      <details key="end" value="9594"/>
+    <eAnnotations source="positions.104" references="/0/generateJavaSecurity/%.7/%.1">
+      <details key="start" value="10516"/>
+      <details key="end" value="10548"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.101" references="/0/generateJavaSecurity/%.7/%.1/%">
-      <details key="start" value="9562"/>
-      <details key="end" value="9585"/>
+    <eAnnotations source="positions.105" references="/0/generateJavaSecurity/%.7/%.1/%">
+      <details key="start" value="10516"/>
+      <details key="end" value="10539"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.102" references="/0/generateJavaSecurity/%.7/%.1/%/aGenerator">
-      <details key="start" value="9562"/>
-      <details key="end" value="9572"/>
+    <eAnnotations source="positions.106" references="/0/generateJavaSecurity/%.7/%.1/%/aGenerator">
+      <details key="start" value="10516"/>
+      <details key="end" value="10526"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.103" references="/0/generateJavaSecurity/%.7/%.2">
-      <details key="start" value="9596"/>
-      <details key="end" value="11056"/>
-      <details key="line" value="258"/>
+    <eAnnotations source="positions.107" references="/0/generateJavaSecurity/%.7/%.2">
+      <details key="start" value="10550"/>
+      <details key="end" value="12010"/>
+      <details key="line" value="278"/>
     </eAnnotations>
-    <eAnnotations source="positions.104" references="/0/generateJavaSecurity/%.7/%.3">
-      <details key="start" value="9362"/>
-      <details key="end" value="9533"/>
+    <eAnnotations source="positions.108" references="/0/generateJavaSecurity/%.7/%.3">
+      <details key="start" value="10316"/>
+      <details key="end" value="10487"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.105" references="/0/generateJavaSecurity/%.7/%.3/%">
-      <details key="start" value="9362"/>
-      <details key="end" value="9439"/>
+    <eAnnotations source="positions.109" references="/0/generateJavaSecurity/%.7/%.3/%">
+      <details key="start" value="10316"/>
+      <details key="end" value="10393"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.106" references="/0/generateJavaSecurity/%.7/%.3/%/%">
-      <details key="start" value="9362"/>
-      <details key="end" value="9413"/>
+    <eAnnotations source="positions.110" references="/0/generateJavaSecurity/%.7/%.3/%/%">
+      <details key="start" value="10316"/>
+      <details key="end" value="10367"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.107" references="/0/generateJavaSecurity/%.7/%.3/%/%/aGenerator">
-      <details key="start" value="9373"/>
-      <details key="end" value="9383"/>
+    <eAnnotations source="positions.111" references="/0/generateJavaSecurity/%.7/%.3/%/%/aGenerator">
+      <details key="start" value="10327"/>
+      <details key="end" value="10337"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.108" references="/0/generateJavaSecurity/%.7/%.3/%/%/%">
-      <details key="start" value="9384"/>
-      <details key="end" value="9412"/>
+    <eAnnotations source="positions.112" references="/0/generateJavaSecurity/%.7/%.3/%/%/%">
+      <details key="start" value="10338"/>
+      <details key="end" value="10366"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.109" references="/0/generateJavaSecurity/%.7/%.3/%/%/%/%">
-      <details key="start" value="9384"/>
-      <details key="end" value="9407"/>
+    <eAnnotations source="positions.113" references="/0/generateJavaSecurity/%.7/%.3/%/%/%/%">
+      <details key="start" value="10338"/>
+      <details key="end" value="10361"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.110" references="/0/generateJavaSecurity/%.7/%.3/%/%/%/%/aGenerator">
-      <details key="start" value="9384"/>
-      <details key="end" value="9394"/>
+    <eAnnotations source="positions.114" references="/0/generateJavaSecurity/%.7/%.3/%/%/%/%/aGenerator">
+      <details key="start" value="10338"/>
+      <details key="end" value="10348"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.111" references="/0/generateJavaSecurity/%.7/%.3/%/%.1">
-      <details key="start" value="9421"/>
-      <details key="end" value="9438"/>
+    <eAnnotations source="positions.115" references="/0/generateJavaSecurity/%.7/%.3/%/%.1">
+      <details key="start" value="10375"/>
+      <details key="end" value="10392"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.112" references="/0/generateJavaSecurity/%.7/%.3/%.1">
-      <details key="start" value="9447"/>
-      <details key="end" value="9532"/>
+    <eAnnotations source="positions.116" references="/0/generateJavaSecurity/%.7/%.3/%.1">
+      <details key="start" value="10401"/>
+      <details key="end" value="10486"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.113" references="/0/generateJavaSecurity/%.7/%.3/%.1/%">
-      <details key="start" value="9447"/>
-      <details key="end" value="9493"/>
+    <eAnnotations source="positions.117" references="/0/generateJavaSecurity/%.7/%.3/%.1/%">
+      <details key="start" value="10401"/>
+      <details key="end" value="10447"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.114" references="/0/generateJavaSecurity/%.7/%.3/%.1/%/%">
-      <details key="start" value="9460"/>
-      <details key="end" value="9492"/>
+    <eAnnotations source="positions.118" references="/0/generateJavaSecurity/%.7/%.3/%.1/%/%">
+      <details key="start" value="10414"/>
+      <details key="end" value="10446"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.115" references="/0/generateJavaSecurity/%.7/%.3/%.1/%/%/%">
-      <details key="start" value="9460"/>
-      <details key="end" value="9483"/>
+    <eAnnotations source="positions.119" references="/0/generateJavaSecurity/%.7/%.3/%.1/%/%/%">
+      <details key="start" value="10414"/>
+      <details key="end" value="10437"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.116" references="/0/generateJavaSecurity/%.7/%.3/%.1/%/%/%/aGenerator">
-      <details key="start" value="9460"/>
-      <details key="end" value="9470"/>
+    <eAnnotations source="positions.120" references="/0/generateJavaSecurity/%.7/%.3/%.1/%/%/%/aGenerator">
+      <details key="start" value="10414"/>
+      <details key="end" value="10424"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.117" references="/0/generateJavaSecurity/%.7/%.3/%.1/%.1">
-      <details key="start" value="9501"/>
-      <details key="end" value="9531"/>
+    <eAnnotations source="positions.121" references="/0/generateJavaSecurity/%.7/%.3/%.1/%.1">
+      <details key="start" value="10455"/>
+      <details key="end" value="10485"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.118" references="/0/generateJavaSecurity/%.7/%.4">
-      <details key="start" value="9542"/>
-      <details key="end" value="9549"/>
+    <eAnnotations source="positions.122" references="/0/generateJavaSecurity/%.7/%.4">
+      <details key="start" value="10496"/>
+      <details key="end" value="10503"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.119" references="/0/generateJavaSecurity/%.8">
-      <details key="start" value="11065"/>
-      <details key="end" value="11067"/>
-      <details key="line" value="296"/>
+    <eAnnotations source="positions.123" references="/0/generateJavaSecurity/%.8">
+      <details key="start" value="12019"/>
+      <details key="end" value="12021"/>
+      <details key="line" value="316"/>
     </eAnnotations>
-    <eAnnotations source="positions.120" references="/0/generateJavaSecurity/%.9">
-      <details key="start" value="11067"/>
-      <details key="end" value="11436"/>
-      <details key="line" value="297"/>
+    <eAnnotations source="positions.124" references="/0/generateJavaSecurity/%.9">
+      <details key="start" value="12021"/>
+      <details key="end" value="12419"/>
+      <details key="line" value="317"/>
     </eAnnotations>
-    <eAnnotations source="positions.121" references="/0/generateJavaSecurity/%.9/%">
-      <details key="start" value="11256"/>
-      <details key="end" value="11264"/>
-      <details key="line" value="298"/>
+    <eAnnotations source="positions.125" references="/0/generateJavaSecurity/%.9/%">
+      <details key="start" value="12206"/>
+      <details key="end" value="12214"/>
+      <details key="line" value="318"/>
     </eAnnotations>
-    <eAnnotations source="positions.122" references="/0/generateJavaSecurity/%.9/%.1">
-      <details key="start" value="11265"/>
-      <details key="end" value="11297"/>
+    <eAnnotations source="positions.126" references="/0/generateJavaSecurity/%.9/%.1">
+      <details key="start" value="12215"/>
+      <details key="end" value="12247"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.123" references="/0/generateJavaSecurity/%.9/%.1/%">
-      <details key="start" value="11265"/>
-      <details key="end" value="11288"/>
+    <eAnnotations source="positions.127" references="/0/generateJavaSecurity/%.9/%.1/%">
+      <details key="start" value="12215"/>
+      <details key="end" value="12238"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.124" references="/0/generateJavaSecurity/%.9/%.1/%/aGenerator">
-      <details key="start" value="11265"/>
-      <details key="end" value="11275"/>
+    <eAnnotations source="positions.128" references="/0/generateJavaSecurity/%.9/%.1/%/aGenerator">
+      <details key="start" value="12215"/>
+      <details key="end" value="12225"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.125" references="/0/generateJavaSecurity/%.9/%.2">
-      <details key="start" value="11299"/>
-      <details key="end" value="11429"/>
-      <details key="line" value="298"/>
+    <eAnnotations source="positions.129" references="/0/generateJavaSecurity/%.9/%.2">
+      <details key="start" value="12249"/>
+      <details key="end" value="12412"/>
+      <details key="line" value="318"/>
     </eAnnotations>
-    <eAnnotations source="positions.126" references="/0/generateJavaSecurity/%.9/%.3">
-      <details key="start" value="11074"/>
-      <details key="end" value="11236"/>
+    <eAnnotations source="positions.130" references="/0/generateJavaSecurity/%.9/%.3">
+      <details key="start" value="12028"/>
+      <details key="end" value="12186"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.127" references="/0/generateJavaSecurity/%.9/%.3/%">
-      <details key="start" value="11074"/>
-      <details key="end" value="11151"/>
+    <eAnnotations source="positions.131" references="/0/generateJavaSecurity/%.9/%.3/%">
+      <details key="start" value="12028"/>
+      <details key="end" value="12105"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.128" references="/0/generateJavaSecurity/%.9/%.3/%/%">
-      <details key="start" value="11074"/>
-      <details key="end" value="11125"/>
+    <eAnnotations source="positions.132" references="/0/generateJavaSecurity/%.9/%.3/%/%">
+      <details key="start" value="12028"/>
+      <details key="end" value="12079"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.129" references="/0/generateJavaSecurity/%.9/%.3/%/%/aGenerator">
-      <details key="start" value="11085"/>
-      <details key="end" value="11095"/>
+    <eAnnotations source="positions.133" references="/0/generateJavaSecurity/%.9/%.3/%/%/aGenerator">
+      <details key="start" value="12039"/>
+      <details key="end" value="12049"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.130" references="/0/generateJavaSecurity/%.9/%.3/%/%/%">
-      <details key="start" value="11096"/>
-      <details key="end" value="11124"/>
+    <eAnnotations source="positions.134" references="/0/generateJavaSecurity/%.9/%.3/%/%/%">
+      <details key="start" value="12050"/>
+      <details key="end" value="12078"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.131" references="/0/generateJavaSecurity/%.9/%.3/%/%/%/%">
-      <details key="start" value="11096"/>
-      <details key="end" value="11119"/>
+    <eAnnotations source="positions.135" references="/0/generateJavaSecurity/%.9/%.3/%/%/%/%">
+      <details key="start" value="12050"/>
+      <details key="end" value="12073"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.132" references="/0/generateJavaSecurity/%.9/%.3/%/%/%/%/aGenerator">
-      <details key="start" value="11096"/>
-      <details key="end" value="11106"/>
+    <eAnnotations source="positions.136" references="/0/generateJavaSecurity/%.9/%.3/%/%/%/%/aGenerator">
+      <details key="start" value="12050"/>
+      <details key="end" value="12060"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.133" references="/0/generateJavaSecurity/%.9/%.3/%/%.1">
-      <details key="start" value="11133"/>
-      <details key="end" value="11150"/>
+    <eAnnotations source="positions.137" references="/0/generateJavaSecurity/%.9/%.3/%/%.1">
+      <details key="start" value="12087"/>
+      <details key="end" value="12104"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.134" references="/0/generateJavaSecurity/%.9/%.3/%.1">
-      <details key="start" value="11159"/>
-      <details key="end" value="11235"/>
+    <eAnnotations source="positions.138" references="/0/generateJavaSecurity/%.9/%.3/%.1">
+      <details key="start" value="12113"/>
+      <details key="end" value="12185"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.135" references="/0/generateJavaSecurity/%.9/%.3/%.1/%">
-      <details key="start" value="11159"/>
-      <details key="end" value="11205"/>
+    <eAnnotations source="positions.139" references="/0/generateJavaSecurity/%.9/%.3/%.1/%">
+      <details key="start" value="12113"/>
+      <details key="end" value="12159"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.136" references="/0/generateJavaSecurity/%.9/%.3/%.1/%/%">
-      <details key="start" value="11172"/>
-      <details key="end" value="11204"/>
+    <eAnnotations source="positions.140" references="/0/generateJavaSecurity/%.9/%.3/%.1/%/%">
+      <details key="start" value="12126"/>
+      <details key="end" value="12158"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.137" references="/0/generateJavaSecurity/%.9/%.3/%.1/%/%/%">
-      <details key="start" value="11172"/>
-      <details key="end" value="11195"/>
+    <eAnnotations source="positions.141" references="/0/generateJavaSecurity/%.9/%.3/%.1/%/%/%">
+      <details key="start" value="12126"/>
+      <details key="end" value="12149"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.138" references="/0/generateJavaSecurity/%.9/%.3/%.1/%/%/%/aGenerator">
-      <details key="start" value="11172"/>
-      <details key="end" value="11182"/>
+    <eAnnotations source="positions.142" references="/0/generateJavaSecurity/%.9/%.3/%.1/%/%/%/aGenerator">
+      <details key="start" value="12126"/>
+      <details key="end" value="12136"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.139" references="/0/generateJavaSecurity/%.9/%.3/%.1/%.1">
-      <details key="start" value="11213"/>
-      <details key="end" value="11234"/>
+    <eAnnotations source="positions.143" references="/0/generateJavaSecurity/%.9/%.3/%.1/%.1">
+      <details key="start" value="12167"/>
+      <details key="end" value="12184"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.140" references="/0/generateJavaSecurity/%.9/%.4">
-      <details key="start" value="11245"/>
-      <details key="end" value="11252"/>
+    <eAnnotations source="positions.144" references="/0/generateJavaSecurity/%.9/%.4">
+      <details key="start" value="12195"/>
+      <details key="end" value="12202"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.141" references="/0/generateJavaSecurity/%.10">
-      <details key="start" value="11438"/>
-      <details key="end" value="11440"/>
-      <details key="line" value="308"/>
+    <eAnnotations source="positions.145" references="/0/generateJavaSecurity/%.10">
+      <details key="start" value="12421"/>
+      <details key="end" value="12425"/>
+      <details key="line" value="328"/>
     </eAnnotations>
-    <eAnnotations source="positions.142" references="/0/generateJavaSecurity/%.11">
-      <details key="start" value="11440"/>
-      <details key="end" value="11838"/>
-      <details key="line" value="309"/>
+    <eAnnotations source="positions.146" references="/0/generateJavaSecurity/%.11">
+      <details key="start" value="12425"/>
+      <details key="end" value="13018"/>
+      <details key="line" value="330"/>
     </eAnnotations>
-    <eAnnotations source="positions.143" references="/0/generateJavaSecurity/%.11/%">
-      <details key="start" value="11625"/>
-      <details key="end" value="11633"/>
-      <details key="line" value="310"/>
+    <eAnnotations source="positions.147" references="/0/generateJavaSecurity/%.11/%">
+      <details key="start" value="12617"/>
+      <details key="end" value="12625"/>
+      <details key="line" value="331"/>
     </eAnnotations>
-    <eAnnotations source="positions.144" references="/0/generateJavaSecurity/%.11/%.1">
-      <details key="start" value="11634"/>
-      <details key="end" value="11666"/>
+    <eAnnotations source="positions.148" references="/0/generateJavaSecurity/%.11/%.1">
+      <details key="start" value="12626"/>
+      <details key="end" value="12658"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.145" references="/0/generateJavaSecurity/%.11/%.1/%">
-      <details key="start" value="11634"/>
-      <details key="end" value="11657"/>
+    <eAnnotations source="positions.149" references="/0/generateJavaSecurity/%.11/%.1/%">
+      <details key="start" value="12626"/>
+      <details key="end" value="12649"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.146" references="/0/generateJavaSecurity/%.11/%.1/%/aGenerator">
-      <details key="start" value="11634"/>
-      <details key="end" value="11644"/>
+    <eAnnotations source="positions.150" references="/0/generateJavaSecurity/%.11/%.1/%/aGenerator">
+      <details key="start" value="12626"/>
+      <details key="end" value="12636"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.147" references="/0/generateJavaSecurity/%.11/%.2">
-      <details key="start" value="11668"/>
-      <details key="end" value="11831"/>
-      <details key="line" value="310"/>
+    <eAnnotations source="positions.151" references="/0/generateJavaSecurity/%.11/%.2">
+      <details key="start" value="12660"/>
+      <details key="end" value="13011"/>
+      <details key="line" value="331"/>
     </eAnnotations>
-    <eAnnotations source="positions.148" references="/0/generateJavaSecurity/%.11/%.3">
-      <details key="start" value="11447"/>
-      <details key="end" value="11605"/>
+    <eAnnotations source="positions.152" references="/0/generateJavaSecurity/%.11/%.3">
+      <details key="start" value="12432"/>
+      <details key="end" value="12597"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.149" references="/0/generateJavaSecurity/%.11/%.3/%">
-      <details key="start" value="11447"/>
-      <details key="end" value="11524"/>
+    <eAnnotations source="positions.153" references="/0/generateJavaSecurity/%.11/%.3/%">
+      <details key="start" value="12432"/>
+      <details key="end" value="12509"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.150" references="/0/generateJavaSecurity/%.11/%.3/%/%">
-      <details key="start" value="11447"/>
-      <details key="end" value="11498"/>
+    <eAnnotations source="positions.154" references="/0/generateJavaSecurity/%.11/%.3/%/%">
+      <details key="start" value="12432"/>
+      <details key="end" value="12483"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.151" references="/0/generateJavaSecurity/%.11/%.3/%/%/aGenerator">
-      <details key="start" value="11458"/>
-      <details key="end" value="11468"/>
+    <eAnnotations source="positions.155" references="/0/generateJavaSecurity/%.11/%.3/%/%/aGenerator">
+      <details key="start" value="12443"/>
+      <details key="end" value="12453"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.152" references="/0/generateJavaSecurity/%.11/%.3/%/%/%">
-      <details key="start" value="11469"/>
-      <details key="end" value="11497"/>
+    <eAnnotations source="positions.156" references="/0/generateJavaSecurity/%.11/%.3/%/%/%">
+      <details key="start" value="12454"/>
+      <details key="end" value="12482"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.153" references="/0/generateJavaSecurity/%.11/%.3/%/%/%/%">
-      <details key="start" value="11469"/>
-      <details key="end" value="11492"/>
+    <eAnnotations source="positions.157" references="/0/generateJavaSecurity/%.11/%.3/%/%/%/%">
+      <details key="start" value="12454"/>
+      <details key="end" value="12477"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.154" references="/0/generateJavaSecurity/%.11/%.3/%/%/%/%/aGenerator">
-      <details key="start" value="11469"/>
-      <details key="end" value="11479"/>
+    <eAnnotations source="positions.158" references="/0/generateJavaSecurity/%.11/%.3/%/%/%/%/aGenerator">
+      <details key="start" value="12454"/>
+      <details key="end" value="12464"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.155" references="/0/generateJavaSecurity/%.11/%.3/%/%.1">
-      <details key="start" value="11506"/>
-      <details key="end" value="11523"/>
+    <eAnnotations source="positions.159" references="/0/generateJavaSecurity/%.11/%.3/%/%.1">
+      <details key="start" value="12491"/>
+      <details key="end" value="12508"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.156" references="/0/generateJavaSecurity/%.11/%.3/%.1">
-      <details key="start" value="11532"/>
-      <details key="end" value="11604"/>
+    <eAnnotations source="positions.160" references="/0/generateJavaSecurity/%.11/%.3/%.1">
+      <details key="start" value="12517"/>
+      <details key="end" value="12596"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.157" references="/0/generateJavaSecurity/%.11/%.3/%.1/%">
-      <details key="start" value="11532"/>
-      <details key="end" value="11578"/>
+    <eAnnotations source="positions.161" references="/0/generateJavaSecurity/%.11/%.3/%.1/%">
+      <details key="start" value="12517"/>
+      <details key="end" value="12563"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.158" references="/0/generateJavaSecurity/%.11/%.3/%.1/%/%">
-      <details key="start" value="11545"/>
-      <details key="end" value="11577"/>
+    <eAnnotations source="positions.162" references="/0/generateJavaSecurity/%.11/%.3/%.1/%/%">
+      <details key="start" value="12530"/>
+      <details key="end" value="12562"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.159" references="/0/generateJavaSecurity/%.11/%.3/%.1/%/%/%">
-      <details key="start" value="11545"/>
-      <details key="end" value="11568"/>
+    <eAnnotations source="positions.163" references="/0/generateJavaSecurity/%.11/%.3/%.1/%/%/%">
+      <details key="start" value="12530"/>
+      <details key="end" value="12553"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.160" references="/0/generateJavaSecurity/%.11/%.3/%.1/%/%/%/aGenerator">
-      <details key="start" value="11545"/>
-      <details key="end" value="11555"/>
+    <eAnnotations source="positions.164" references="/0/generateJavaSecurity/%.11/%.3/%.1/%/%/%/aGenerator">
+      <details key="start" value="12530"/>
+      <details key="end" value="12540"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.161" references="/0/generateJavaSecurity/%.11/%.3/%.1/%.1">
-      <details key="start" value="11586"/>
-      <details key="end" value="11603"/>
+    <eAnnotations source="positions.165" references="/0/generateJavaSecurity/%.11/%.3/%.1/%.1">
+      <details key="start" value="12571"/>
+      <details key="end" value="12595"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.162" references="/0/generateJavaSecurity/%.11/%.4">
-      <details key="start" value="11614"/>
-      <details key="end" value="11621"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.163" references="/0/generateJavaSecurity/%.12">
-      <details key="start" value="11840"/>
-      <details key="end" value="11844"/>
-      <details key="line" value="320"/>
-    </eAnnotations>
-    <eAnnotations source="positions.164" references="/0/generateJavaSecurity/%.13">
-      <details key="start" value="11844"/>
-      <details key="end" value="12437"/>
-      <details key="line" value="322"/>
-    </eAnnotations>
-    <eAnnotations source="positions.165" references="/0/generateJavaSecurity/%.13/%">
-      <details key="start" value="12036"/>
-      <details key="end" value="12044"/>
-      <details key="line" value="323"/>
-    </eAnnotations>
-    <eAnnotations source="positions.166" references="/0/generateJavaSecurity/%.13/%.1">
-      <details key="start" value="12045"/>
-      <details key="end" value="12077"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.167" references="/0/generateJavaSecurity/%.13/%.1/%">
-      <details key="start" value="12045"/>
-      <details key="end" value="12068"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.168" references="/0/generateJavaSecurity/%.13/%.1/%/aGenerator">
-      <details key="start" value="12045"/>
-      <details key="end" value="12055"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.169" references="/0/generateJavaSecurity/%.13/%.2">
-      <details key="start" value="12079"/>
-      <details key="end" value="12430"/>
-      <details key="line" value="323"/>
-    </eAnnotations>
-    <eAnnotations source="positions.170" references="/0/generateJavaSecurity/%.13/%.3">
-      <details key="start" value="11851"/>
-      <details key="end" value="12016"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.171" references="/0/generateJavaSecurity/%.13/%.3/%">
-      <details key="start" value="11851"/>
-      <details key="end" value="11928"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.172" references="/0/generateJavaSecurity/%.13/%.3/%/%">
-      <details key="start" value="11851"/>
-      <details key="end" value="11902"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.173" references="/0/generateJavaSecurity/%.13/%.3/%/%/aGenerator">
-      <details key="start" value="11862"/>
-      <details key="end" value="11872"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.174" references="/0/generateJavaSecurity/%.13/%.3/%/%/%">
-      <details key="start" value="11873"/>
-      <details key="end" value="11901"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.175" references="/0/generateJavaSecurity/%.13/%.3/%/%/%/%">
-      <details key="start" value="11873"/>
-      <details key="end" value="11896"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.176" references="/0/generateJavaSecurity/%.13/%.3/%/%/%/%/aGenerator">
-      <details key="start" value="11873"/>
-      <details key="end" value="11883"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.177" references="/0/generateJavaSecurity/%.13/%.3/%/%.1">
-      <details key="start" value="11910"/>
-      <details key="end" value="11927"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.178" references="/0/generateJavaSecurity/%.13/%.3/%.1">
-      <details key="start" value="11936"/>
-      <details key="end" value="12015"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.179" references="/0/generateJavaSecurity/%.13/%.3/%.1/%">
-      <details key="start" value="11936"/>
-      <details key="end" value="11982"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.180" references="/0/generateJavaSecurity/%.13/%.3/%.1/%/%">
-      <details key="start" value="11949"/>
-      <details key="end" value="11981"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.181" references="/0/generateJavaSecurity/%.13/%.3/%.1/%/%/%">
-      <details key="start" value="11949"/>
-      <details key="end" value="11972"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.182" references="/0/generateJavaSecurity/%.13/%.3/%.1/%/%/%/aGenerator">
-      <details key="start" value="11949"/>
-      <details key="end" value="11959"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.183" references="/0/generateJavaSecurity/%.13/%.3/%.1/%.1">
-      <details key="start" value="11990"/>
-      <details key="end" value="12014"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.184" references="/0/generateJavaSecurity/%.13/%.4">
-      <details key="start" value="12025"/>
-      <details key="end" value="12032"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.185" references="/0/generateJavaSecurity/%.14">
-      <details key="start" value="12439"/>
-      <details key="end" value="12441"/>
-      <details key="line" value="345"/>
-    </eAnnotations>
-    <eAnnotations source="positions.186" references="/0/generateJavaSecurity/%.15">
-      <details key="start" value="12441"/>
-      <details key="end" value="13038"/>
-      <details key="line" value="346"/>
-    </eAnnotations>
-    <eAnnotations source="positions.187" references="/0/generateJavaSecurity/%.15/%">
-      <details key="start" value="12634"/>
-      <details key="end" value="12642"/>
-      <details key="line" value="347"/>
-    </eAnnotations>
-    <eAnnotations source="positions.188" references="/0/generateJavaSecurity/%.15/%.1">
-      <details key="start" value="12643"/>
-      <details key="end" value="12675"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.189" references="/0/generateJavaSecurity/%.15/%.1/%">
-      <details key="start" value="12643"/>
-      <details key="end" value="12666"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.190" references="/0/generateJavaSecurity/%.15/%.1/%/aGenerator">
-      <details key="start" value="12643"/>
-      <details key="end" value="12653"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.191" references="/0/generateJavaSecurity/%.15/%.2">
-      <details key="start" value="12677"/>
-      <details key="end" value="13031"/>
-      <details key="line" value="347"/>
-    </eAnnotations>
-    <eAnnotations source="positions.192" references="/0/generateJavaSecurity/%.15/%.3">
-      <details key="start" value="12448"/>
-      <details key="end" value="12614"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.193" references="/0/generateJavaSecurity/%.15/%.3/%">
-      <details key="start" value="12448"/>
-      <details key="end" value="12525"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.194" references="/0/generateJavaSecurity/%.15/%.3/%/%">
-      <details key="start" value="12448"/>
-      <details key="end" value="12499"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.195" references="/0/generateJavaSecurity/%.15/%.3/%/%/aGenerator">
-      <details key="start" value="12459"/>
-      <details key="end" value="12469"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.196" references="/0/generateJavaSecurity/%.15/%.3/%/%/%">
-      <details key="start" value="12470"/>
-      <details key="end" value="12498"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.197" references="/0/generateJavaSecurity/%.15/%.3/%/%/%/%">
-      <details key="start" value="12470"/>
-      <details key="end" value="12493"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.198" references="/0/generateJavaSecurity/%.15/%.3/%/%/%/%/aGenerator">
-      <details key="start" value="12470"/>
-      <details key="end" value="12480"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.199" references="/0/generateJavaSecurity/%.15/%.3/%/%.1">
-      <details key="start" value="12507"/>
-      <details key="end" value="12524"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.200" references="/0/generateJavaSecurity/%.15/%.3/%.1">
-      <details key="start" value="12533"/>
+    <eAnnotations source="positions.166" references="/0/generateJavaSecurity/%.11/%.4">
+      <details key="start" value="12606"/>
       <details key="end" value="12613"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.201" references="/0/generateJavaSecurity/%.15/%.3/%.1/%">
-      <details key="start" value="12533"/>
-      <details key="end" value="12579"/>
+    <eAnnotations source="positions.167" references="/0/generateJavaSecurity/%.12">
+      <details key="start" value="13020"/>
+      <details key="end" value="13022"/>
+      <details key="line" value="353"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/generateJavaSecurity/%.13">
+      <details key="start" value="13022"/>
+      <details key="end" value="13619"/>
+      <details key="line" value="354"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/generateJavaSecurity/%.13/%">
+      <details key="start" value="13215"/>
+      <details key="end" value="13223"/>
+      <details key="line" value="355"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/generateJavaSecurity/%.13/%.1">
+      <details key="start" value="13224"/>
+      <details key="end" value="13256"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.202" references="/0/generateJavaSecurity/%.15/%.3/%.1/%/%">
-      <details key="start" value="12546"/>
-      <details key="end" value="12578"/>
+    <eAnnotations source="positions.171" references="/0/generateJavaSecurity/%.13/%.1/%">
+      <details key="start" value="13224"/>
+      <details key="end" value="13247"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.203" references="/0/generateJavaSecurity/%.15/%.3/%.1/%/%/%">
-      <details key="start" value="12546"/>
-      <details key="end" value="12569"/>
+    <eAnnotations source="positions.172" references="/0/generateJavaSecurity/%.13/%.1/%/aGenerator">
+      <details key="start" value="13224"/>
+      <details key="end" value="13234"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.204" references="/0/generateJavaSecurity/%.15/%.3/%.1/%/%/%/aGenerator">
-      <details key="start" value="12546"/>
-      <details key="end" value="12556"/>
+    <eAnnotations source="positions.173" references="/0/generateJavaSecurity/%.13/%.2">
+      <details key="start" value="13258"/>
+      <details key="end" value="13612"/>
+      <details key="line" value="355"/>
+    </eAnnotations>
+    <eAnnotations source="positions.174" references="/0/generateJavaSecurity/%.13/%.3">
+      <details key="start" value="13029"/>
+      <details key="end" value="13195"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.205" references="/0/generateJavaSecurity/%.15/%.3/%.1/%.1">
-      <details key="start" value="12587"/>
-      <details key="end" value="12612"/>
+    <eAnnotations source="positions.175" references="/0/generateJavaSecurity/%.13/%.3/%">
+      <details key="start" value="13029"/>
+      <details key="end" value="13106"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.206" references="/0/generateJavaSecurity/%.15/%.4">
-      <details key="start" value="12623"/>
-      <details key="end" value="12630"/>
+    <eAnnotations source="positions.176" references="/0/generateJavaSecurity/%.13/%.3/%/%">
+      <details key="start" value="13029"/>
+      <details key="end" value="13080"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.207" references="/0/generateJavaSecurity/%.16">
+    <eAnnotations source="positions.177" references="/0/generateJavaSecurity/%.13/%.3/%/%/aGenerator">
       <details key="start" value="13040"/>
-      <details key="end" value="13042"/>
-      <details key="line" value="365"/>
+      <details key="end" value="13050"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.208" references="/0/generateJavaSecurity/aGenerator">
+    <eAnnotations source="positions.178" references="/0/generateJavaSecurity/%.13/%.3/%/%/%">
+      <details key="start" value="13051"/>
+      <details key="end" value="13079"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.179" references="/0/generateJavaSecurity/%.13/%.3/%/%/%/%">
+      <details key="start" value="13051"/>
+      <details key="end" value="13074"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.180" references="/0/generateJavaSecurity/%.13/%.3/%/%/%/%/aGenerator">
+      <details key="start" value="13051"/>
+      <details key="end" value="13061"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.181" references="/0/generateJavaSecurity/%.13/%.3/%/%.1">
+      <details key="start" value="13088"/>
+      <details key="end" value="13105"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.182" references="/0/generateJavaSecurity/%.13/%.3/%.1">
+      <details key="start" value="13114"/>
+      <details key="end" value="13194"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.183" references="/0/generateJavaSecurity/%.13/%.3/%.1/%">
+      <details key="start" value="13114"/>
+      <details key="end" value="13160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.184" references="/0/generateJavaSecurity/%.13/%.3/%.1/%/%">
+      <details key="start" value="13127"/>
+      <details key="end" value="13159"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.185" references="/0/generateJavaSecurity/%.13/%.3/%.1/%/%/%">
+      <details key="start" value="13127"/>
+      <details key="end" value="13150"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.186" references="/0/generateJavaSecurity/%.13/%.3/%.1/%/%/%/aGenerator">
+      <details key="start" value="13127"/>
+      <details key="end" value="13137"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.187" references="/0/generateJavaSecurity/%.13/%.3/%.1/%.1">
+      <details key="start" value="13168"/>
+      <details key="end" value="13193"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.188" references="/0/generateJavaSecurity/%.13/%.4">
+      <details key="start" value="13204"/>
+      <details key="end" value="13211"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.189" references="/0/generateJavaSecurity/%.14">
+      <details key="start" value="13621"/>
+      <details key="end" value="13623"/>
+      <details key="line" value="373"/>
+    </eAnnotations>
+    <eAnnotations source="positions.190" references="/0/generateJavaSecurity/%.15">
+      <details key="start" value="13623"/>
+      <details key="end" value="14182"/>
+      <details key="line" value="374"/>
+    </eAnnotations>
+    <eAnnotations source="positions.191" references="/0/generateJavaSecurity/%.15/%">
+      <details key="start" value="13818"/>
+      <details key="end" value="13826"/>
+      <details key="line" value="375"/>
+    </eAnnotations>
+    <eAnnotations source="positions.192" references="/0/generateJavaSecurity/%.15/%.1">
+      <details key="start" value="13827"/>
+      <details key="end" value="13859"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.193" references="/0/generateJavaSecurity/%.15/%.1/%">
+      <details key="start" value="13827"/>
+      <details key="end" value="13850"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.194" references="/0/generateJavaSecurity/%.15/%.1/%/aGenerator">
+      <details key="start" value="13827"/>
+      <details key="end" value="13837"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.195" references="/0/generateJavaSecurity/%.15/%.2">
+      <details key="start" value="13861"/>
+      <details key="end" value="14175"/>
+      <details key="line" value="375"/>
+    </eAnnotations>
+    <eAnnotations source="positions.196" references="/0/generateJavaSecurity/%.15/%.3">
+      <details key="start" value="13630"/>
+      <details key="end" value="13798"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.197" references="/0/generateJavaSecurity/%.15/%.3/%">
+      <details key="start" value="13630"/>
+      <details key="end" value="13707"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.198" references="/0/generateJavaSecurity/%.15/%.3/%/%">
+      <details key="start" value="13630"/>
+      <details key="end" value="13681"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.199" references="/0/generateJavaSecurity/%.15/%.3/%/%/aGenerator">
+      <details key="start" value="13641"/>
+      <details key="end" value="13651"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.200" references="/0/generateJavaSecurity/%.15/%.3/%/%/%">
+      <details key="start" value="13652"/>
+      <details key="end" value="13680"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.201" references="/0/generateJavaSecurity/%.15/%.3/%/%/%/%">
+      <details key="start" value="13652"/>
+      <details key="end" value="13675"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.202" references="/0/generateJavaSecurity/%.15/%.3/%/%/%/%/aGenerator">
+      <details key="start" value="13652"/>
+      <details key="end" value="13662"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.203" references="/0/generateJavaSecurity/%.15/%.3/%/%.1">
+      <details key="start" value="13689"/>
+      <details key="end" value="13706"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.204" references="/0/generateJavaSecurity/%.15/%.3/%.1">
+      <details key="start" value="13715"/>
+      <details key="end" value="13797"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.205" references="/0/generateJavaSecurity/%.15/%.3/%.1/%">
+      <details key="start" value="13715"/>
+      <details key="end" value="13761"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.206" references="/0/generateJavaSecurity/%.15/%.3/%.1/%/%">
+      <details key="start" value="13728"/>
+      <details key="end" value="13760"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.207" references="/0/generateJavaSecurity/%.15/%.3/%.1/%/%/%">
+      <details key="start" value="13728"/>
+      <details key="end" value="13751"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.208" references="/0/generateJavaSecurity/%.15/%.3/%.1/%/%/%/aGenerator">
+      <details key="start" value="13728"/>
+      <details key="end" value="13738"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.209" references="/0/generateJavaSecurity/%.15/%.3/%.1/%.1">
+      <details key="start" value="13769"/>
+      <details key="end" value="13796"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.210" references="/0/generateJavaSecurity/%.15/%.4">
+      <details key="start" value="13807"/>
+      <details key="end" value="13814"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.211" references="/0/generateJavaSecurity/%.16">
+      <details key="start" value="14184"/>
+      <details key="end" value="14186"/>
+      <details key="line" value="395"/>
+    </eAnnotations>
+    <eAnnotations source="positions.212" references="/0/generateJavaSecurity/aGenerator">
       <details key="start" value="190"/>
       <details key="end" value="212"/>
       <details key="line" value="5"/>
