@@ -1,8 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { SocialUser } from 'angularx-social-login';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/core/services/auth.service';
 import { GAService } from 'src/app/core/services/ga.service';
 import { EventMessage } from '../../core/messages/event.message';
 
@@ -21,13 +19,9 @@ export class EventMessageComponent implements OnInit, AfterViewInit {
   closeResult: string;
 
 
-  public user: Observable<SocialUser>;
-
   constructor(
     
     private eventMessage: EventMessage,
-
-    private readonly authService: AuthService,
     private ga: GAService
   ) { }
 
@@ -87,7 +81,7 @@ export class EventMessageComponent implements OnInit, AfterViewInit {
 
 
   logOut() {
-    this.authService.logout();
+   
   }
 
 
