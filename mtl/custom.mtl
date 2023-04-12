@@ -1,0 +1,173 @@
+[comment encoding = UTF-8 /]
+[module custom('http://com/microservice')]
+[import com::microservice::acceleo::module::generator::main::util /]
+
+
+[template public generateCustom(aGenerator : Generator)]
+
+[comment start front generation/]
+[if (aGenerator.microservice.front <> null)]
+	[if aGenerator.microservice.security <> SecurityType::SELF_JWT]
+		[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('src/app/shared/header/header.component.html')), false)]
+<header class="header_inicio">
+    <div class="logoContent">
+      <img class="logo" src="../../../../../assets/imagenes/Logo_.svg" alt="">
+    </div>
+    <div class="buttons">
+      <a class="button_registrar" href="">Regístrarme</a>
+      <a class="button_ingresar" >Ingresar</a>
+    </div>
+  </header>
+		[/file]
+	[/if ]
+
+	[if aGenerator.microservice.security = SecurityType::SELF_JWT]
+		[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('src/app/shared/header/header.component.html')), false)]
+
+
+<header>
+    <nav class="flex items-center justify-between p-6 container mx-auto">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-700" fill="none"  stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            <span class="no-underline hover:no-underline font-bold text-2xl lg:text-4xl">app-sharedstock-front</span>
+        </div>
+        <!-- Menu items -->
+        <div class="text-lg text-gray-600 hidden lg:flex">
+            <a href="#" class="block mt-4 lg:inline-block text-indigo-600 lg:mt-0 mr-10">
+                Home
+            </a>
+            <a href="#/sections" class="block mt-4 lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
+                Secciones
+            </a>
+        </div>
+
+        <!-- CTA and Hamburger icon -->
+        <div class="flex items-center">
+            <div *ngIf="!user"  class="mr-5 lg:mr-0">
+                <a href="#/login" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+            </div>
+      
+      		<div *ngIf="user">
+                <span class="sr-only">{{user.name}}</span>
+            </div>
+  
+            <div *ngIf="user"  class="mr-5 lg:mr-0 font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer hidden lg:flex">
+                <button (click)="logout()" type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                    Salir
+                </button>
+                
+            </div>
+   
+   
+        </div>
+
+        
+    </nav>
+    <div #mobMenu class="md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" href="/#">
+                Home
+            </a>
+        </div>
+    </div>
+
+   </header>
+
+		[/file]
+	[/if ]
+
+
+
+
+  [for (entity : Entity | aGenerator.microservice.entities)]
+	[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('src/app/sections/').concat(getSimpleAppName(aGenerator,aGenerator.microservice.name)).concat('/').concat(entity.name.toLowerCase()).concat('.component.html')), false)]
+
+<!-- section -->
+<section>
+
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+<form ['['/]formGroup[']'/]="form[entity.name/]" role="form">
+[entity.name/]
+  <div class="-mx-3 md:flex mb-6">
+
+		[for (entityAtt : EntityAttribute | entity.attributes)]
+ 			
+ 	<div class="md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-[entity.name/]-[entityAtt.name/]">
+        [entityAtt.name/]
+      </label>
+      <input formControlName="[entityAtt.name/]" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-[entity.name/]-[entityAtt.name/]" type="text" placeholder="[entityAtt.name/]">
+      <p class="text-red text-xs italic">Please fill out this field.</p>
+    </div>
+
+		[/for]
+   
+  </div>
+  <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+		[for (service : Service | aGenerator.microservice.services)]
+			[for (path : ServicePath | aGenerator.microservice.services.paths)]
+    <div class="rounded-md shadow">
+      <a (click)="[getCapitalNameNonFirst(service.name)/][entity.name/][getCapitalNameNonFirst(path.name)/]()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+       	 [getCapitalNameNonFirst(path.name)/]
+      </a>
+    </div>
+			[/for]
+		[/for]
+		[if (aGenerator.microservice.entities <> null and aGenerator.microservice.database <> null)]
+ <div class="rounded-md shadow">
+      <a (click)="get[getCapitalName(entity.name).toLowerCase()/]()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+       	 get[getCapitalName(entity.name)/]
+      </a>
+    </div>
+
+ <div class="rounded-md shadow">
+      <a (click)="post[getCapitalName(entity.name).toLowerCase()/]()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+       	 post[getCapitalName(entity.name)/]
+      </a>
+    </div>
+		[/if ]
+
+  </div>
+</form>
+
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+            <tr>
+	[for (entityAtt : EntityAttribute | entity.attributes)]
+			  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                 [entityAtt.name/]
+              </th>
+	[/for]
+             
+            </tr>
+          </thead>
+          <tbody>
+			<tr *ngFor="let item of result" class="border-b">
+	[for (entityAtt : EntityAttribute | entity.attributes)]
+ 			 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{item.[entityAtt.name/]}}
+              </td>
+	[/for]
+      		</tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</section>
+	[/file]
+[/for]
+
+[/if]
+
+[/template]

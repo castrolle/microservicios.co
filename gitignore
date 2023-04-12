@@ -112,3 +112,5 @@ buildNumber.properties
 .factorypath
 .factorypath
 
+### Microservices ###
+output/*
