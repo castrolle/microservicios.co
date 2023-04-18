@@ -114,3 +114,4 @@ buildNumber.properties
 
 ### Microservices ###
 output/*
+output/
