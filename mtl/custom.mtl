@@ -7,7 +7,11 @@
 
 [comment start front generation/]
 [if (aGenerator.microservice.front <> null)]
-	[if aGenerator.microservice.security <> SecurityType::SELF_JWT]
+
+
+
+
+	[if aGenerator.microservice.security = SecurityType::NONE]
 		[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('src/app/shared/header/header.component.html')), false)]
 <header>
     <nav class="flex items-center justify-between p-6 container mx-auto">
@@ -134,6 +138,9 @@
 
 		[/file]
 	[/if ]
+
+
+
 
 
 
