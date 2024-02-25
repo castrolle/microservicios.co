@@ -5,143 +5,251 @@
 
 [template public generateCustom(aGenerator : Generator)]
 
-[comment start front generation/]
+
+
+[file (getAppName(aGenerator,aGenerator.microservice.name).concat('/README.md'), false, 'UTF-8')]
+# [(getAppName(aGenerator,aGenerator.microservice.name))/]
+
+[aGenerator.microservice.description/]
+
+## Tabla de Contenidos
+
+* ['['/]Desarrollo[']'/](#desarrollo)
+* ['['/]Integraciones[']'/](#integraciones)
+[if (not aGenerator.microservice.services->isEmpty())]
+  * ['['/]Servicios[']'/](#servicios)
+[/if]
+[if (not aGenerator.microservice.database->isEmpty())]
+  * ['['/]Base de Datos[']'/](#base-de-datos)
+[/if]
+[if (not aGenerator.microservice.azureresources->isEmpty()) and (not aGenerator.microservice.azureresources.insight->isEmpty())]
+  * ['['/]Azure Insight[']'/](#azure-insight)
+[/if]
+* ['['/]Trazabilidad[']'/](#trazabilidad)
+* ['['/]Procesos[']'/](#procesos)
+  * ['['/]Proceso 1[']'/](#p1)
+  * ['['/]Proceso 2[']'/](#p2)
+  * ['['/]Proceso 3[']'/](#p3)
+* ['['/]Operacion[']'/](#operacion)
+* ['['/]Troubleshooting[']'/](#troubleshooting)
+
+
+## Integraciones
+
+[if (not aGenerator.microservice.services->isEmpty())]
+## Servicios
+
+| Url Dev       | Url Prod      | Path  |
+| ------------- |:-------------:| -----:|
+[for (service : Service | aGenerator.microservice.services)]
+    [for (path : ServicePath | service.paths)]
+| [service.url/]| [service.url/]|  [path.path/] |
+	[/for]
+[/for]
+[/if]
+
+[if (not aGenerator.microservice.database->isEmpty())]
+## Base de Datos
+
+| Url Dev       | Url Prod      | 
+| ------------- |:-------------:| 
+[for (db : DataBase | aGenerator.microservice.database)]
+| [db.url/] | [db.url/] |  
+[/for]
+[/if]
+
+	
+[if (not aGenerator.microservice.azureresources->isEmpty()) and (not aGenerator.microservice.azureresources.insight->isEmpty())]
+## Azure Insight
+
+| Nombre      |  Llave | 
+| ------------- |:-------------:| 
+[for (insight : Insight | aGenerator.microservice.azureresources.insight)]
+| [insight.name/] | [insight.key/] |  
+[/for]
+
+> Datos trazabilidad:
+
+- version = version app
+- message = json object
+- idProcess = id trace
+- index = index 
+- app = app name
+- eventDate = event date (yyyy-MM-dd'T'HH:mm:ss.SS")
+- typeStatusCode = type code 200|500
+- type           = type info|error 
+
+
+[/if]
+
+
+## Procesos
+Procesos del api.
+
+| Nombre        | Descripcion   | 
+| ------------- |:-------------:| 
+| col 3 is      | right-aligned | 
+| col 2 is      | centered      |  
+| zebra stripes | are neat      |  
+
+### Create the database
+CREATE DATABASE "[(getAppName(aGenerator,aGenerator.microservice.name))/]";
+
+### Create the user
+CREATE USER "[(getAppName(aGenerator,aGenerator.microservice.name))/]" WITH PASSWORD '123456789!aA';
+
+### Grant privileges to the user on the database
+GRANT ALL PRIVILEGES ON DATABASE "[(getAppName(aGenerator,aGenerator.microservice.name))/]" TO "[(getAppName(aGenerator,aGenerator.microservice.name))/]";
+
+
+[/file]
+
+
 [if (aGenerator.microservice.front <> null)]
 
 
 
 
-	[if aGenerator.microservice.security = SecurityType::NONE]
-		[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('src/app/shared/header/header.component.html')), false)]
-<header>
-    <nav class="flex items-center justify-between p-6 container mx-auto">
-        <!-- Logo -->
-        <div class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-700" fill="none"  stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-              </svg>
-            <span class="no-underline hover:no-underline font-bold text-2xl lg:text-4xl">[getAppName(aGenerator, aGenerator.microservice.name)/]</span>
-        </div>
-        <!-- Menu items -->
-        <div class="text-lg text-gray-600 hidden lg:flex">
-            <a href="#" class="block mt-4 lg:inline-block text-indigo-600 lg:mt-0 mr-10">
-                Home
-            </a>
-            <a href="#/sections" class="block mt-4 lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
-                Secciones
-            </a>
-        </div>
 
-		[if aGenerator.microservice.gateway <> null]
- 		 <!-- CTA and Hamburger icon -->
-         <div class="flex items-center">
-          <div *ngIf="!name"  class="mr-5 lg:mr-0">
-              <a href="#/login" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
-          </div>
-    
-          <div *ngIf="name">
-            <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-              <span class="sr-only">Perfil</span>
-              <img class="h-8 w-8 rounded-full" src="{{photoUrl}}" alt="">
-            </button>
-          </div>
 
-          <div *ngIf="name"  class="mr-5 lg:mr-0 font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer hidden lg:flex">
-              <a (click)="logOut()" class="font-medium text-indigo-600 hover:text-indigo-500">Salir</a>
-          </div>
- 
-          <div class="block lg:hidden">
-              <button (click)="toggleMenu()"
-                  class="flex items-center px-4 py-3 border rounded text-indigo-700 border-indigo-900 focus:outline-none">
-                  <svg class="fill-current h-3 w-3 " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <title>Menu</title>
-                      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                  </svg>
-              </button>
+[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('src/app/components/header/header.component.ts')), false)]
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
-         
+[if aGenerator.microservice.front.security = SecurityType::SELF_JWT]
+import { EventMessage } from 'src/app/shared/messages/event.message';
+import { User } from 'src/app/model/user';
+import { LocalStorageService } from 'src/app/shared/local-storage.service';
+[/if]
 
-          </div>
-      </div>
-		[/if]
-        
-    </nav>
-    <div #mobMenu class="md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" href="/#">
-                Home
-            </a>
-        </div>
-    </div>
+[if aGenerator.microservice.front.security = SecurityType::MSAL]
+import { MsalService } from '@azure/msal-angular';
+import { EventEmitter } from '@angular/core';
+import { GraphService } from 'src/app/services/graph.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { EventMessage } from 'src/app/shared/messages/event.message';
+[/if]
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['['/]'./header.component.scss'[']'/]
+})
+export class HeaderComponent implements OnInit {
 
-</header>
-		[/file]
-	[/if ]
 
-	[if aGenerator.microservice.security = SecurityType::SELF_JWT]
-		[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('src/app/shared/header/header.component.html')), false)]
+[if aGenerator.microservice.front.security = SecurityType::MSAL]
+  public name: string = undefined;
+  private currentUser : string;
+  profileForm: FormGroup;
 
-[if isPlugin(aGenerator,'KafkaPlugin')]
-[getPluginValue(aGenerator,'KafkaPlugin','jaas.config')/]
-[/if ]
+  //public user: Observable<any>;
+  public user: any;
+  public update = new EventEmitter<any>();
 
-<header>
-    <nav class="flex items-center justify-between p-6 container mx-auto">
-        <!-- Logo -->
-        <div class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-700" fill="none"  stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-              </svg>
-            <span class="no-underline hover:no-underline font-bold text-2xl lg:text-4xl">app-sharedstock-front</span>
-        </div>
-        <!-- Menu items -->
-        <div class="text-lg text-gray-600 hidden lg:flex">
-            <a href="#" class="block mt-4 lg:inline-block text-indigo-600 lg:mt-0 mr-10">
-                Home
-            </a>
-            <a href="#/sections" class="block mt-4 lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
-                Secciones
-            </a>
-        </div>
-
-        <!-- CTA and Hamburger icon -->
-        <div class="flex items-center">
-            <div *ngIf="!user"  class="mr-5 lg:mr-0">
-                <a href="#/login" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
-            </div>
-      
-      		<div *ngIf="user">
-                <span class="sr-only">{{user.name}}</span>
-            </div>
-  
-            <div *ngIf="user"  class="mr-5 lg:mr-0 font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer hidden lg:flex">
-                <button (click)="logout()" type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                    Salir
-                </button>
-                
-            </div>
-   
-   
-        </div>
-
-        
-    </nav>
-    <div #mobMenu class="md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" href="/#">
-                Home
-            </a>
-        </div>
-    </div>
-
-   </header>
-
-		[/file]
-	[/if ]
+  constructor(private msalService: MsalService,
+    private localStorageService: LocalStorageService,
+    private eventMessage: EventMessage,
+    private graphService: GraphService, public form: FormBuilder) {
 
 
 
 
+
+  }
+
+  ngOnInit(): void {
+
+
+    this.graphService.me().subscribe(r => {
+      this.name = r.displayName
+      this.user = r;
+      this.localStorageService.setItem('mail', r.mail);
+
+    });
+  }
+
+
+  onOk(result) {
+
+    if (result) {
+      this.msalService.logout();
+    } else {
+      this.name = this.currentUser;
+    }
+
+
+  }
+[/if]
+
+[if aGenerator.microservice.front.security <> SecurityType::MSAL]
+  ngOnInit(): void {
+
+
+  }
+
+[/if]
+
+  @ViewChild('mobMenu') mobMenu: ElementRef;
+
+  toggleMenu() {
+
+    //this.mobMenu.nativeElement.classList
+    if (this.mobMenu.nativeElement.className === 'md:hidden') {
+      this.mobMenu.nativeElement.className = 'hidden'
+    } else {
+      this.mobMenu.nativeElement.className = 'md:hidden'
+    }
+  }
+
+}
+[/file]
+
+
+
+
+
+
+[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('src/app/app-routing.module.ts')), false)]
+import { NgModule } from '@angular/core';
+import { CommonModule, } from '@angular/common';
+import { BrowserModule  } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
+
+import { HomeComponent } from './modules/home/home.component';
+import { SectionsComponent } from './modules/sections/sections.component';
+
+[if aGenerator.microservice.front.security = SecurityType::MSAL]
+import { LoginComponent } from './modules/login/login.component';
+import { MsalGuard } from '@azure/msal-angular';
+[/if]
+[if aGenerator.microservice.front.security = SecurityType::SELF_JWT]
+import { AuthGuard } from './core/guard/auth-guard';
+[/if]
+
+const routes: Routes =['['/]
+    { path: 'sections',          component: SectionsComponent [if aGenerator.microservice.front.security = SecurityType::SELF_JWT] , canActivate: ['['/]AuthGuard[']'/] [/if]   },  
+    { path: '',          component: HomeComponent    },  
+[if aGenerator.microservice.front.security = SecurityType::SELF_JWT or aGenerator.microservice.front.security = SecurityType::MSAL] 
+ { path: 'login',          component: LoginComponent },   
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: '**', redirectTo: '/login', pathMatch: 'full'}
+[/if]
+[']'/];
+
+@NgModule({
+  imports: ['['/]
+    CommonModule,
+    BrowserModule,
+    RouterModule.forRoot(routes,{
+      useHash: true
+    })
+  [']'/],
+  exports: ['['/][']'/],
+})
+export class AppRoutingModule { }
+
+
+[/file]
 
 
 
@@ -230,6 +338,145 @@
 </section>
 	[/file]
 [/for]
+
+
+[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/'.concat('package.json')), false)]
+ 
+{
+  "name": "[getFrontName(aGenerator,aGenerator.microservice.front.name)/]",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": { 
+[if aGenerator.microservice.front.security <> SecurityType::MSAL]
+  "@angular/animations": "~11.2.14",
+    "@angular/common": "~11.2.14",
+    "@angular/compiler": "~11.2.14",
+    "@angular/core": "~11.2.14",
+    "@angular/forms": "~11.2.14",
+    "@angular/platform-browser": "~11.2.14",
+    "@angular/platform-browser-dynamic": "~11.2.14",
+    "@angular/router": "~11.2.14",
+    "@auth0/angular-jwt": "^5.0.2",
+    "angularx-social-login": "^3.5.4",
+    "jw-bootstrap-switch-ng2": "2.0.5",
+	"jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.11.3",
+[/if]
+[if aGenerator.microservice.front.security = SecurityType::MSAL]
+    "@angular/animations": "~11.2.14",
+    "@angular/common": "~11.2.14",
+    "@angular/compiler": "~11.2.14",
+    "@angular/core": "~11.2.14",
+    "@angular/forms": "~11.2.14",
+    "@angular/platform-browser": "~11.2.14",
+    "@angular/platform-browser-dynamic": "~11.2.14",
+    "@angular/router": "~11.2.14",
+    "@auth0/angular-jwt": "^5.0.2",
+	"@azure/msal-angular": "^2.0.0",
+    "@azure/msal-browser": "^2.14.2",
+    "angularx-social-login": "^3.5.4",
+    "jw-bootstrap-switch-ng2": "2.0.5",
+	"jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.11.3",
+
+[/if]
+[if aGenerator.microservice.front.security = SecurityType::SELF_JWT]
+	"jwt-decode": "^3.1.2",
+[/if]
+    "ngx-pagination": "^5.0.0",
+    "sweetalert2": "^9.17.2"
+  },
+  "devDependencies": {
+[if aGenerator.microservice.front.security = SecurityType::MSAL]
+       "@angular-devkit/build-angular": "~0.1102.13",
+    "@angular/cli": "~11.2.14",
+    "@angular/compiler-cli": "~11.2.14",
+    "@types/jasmine": "~3.6.0",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~6.1.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.5.0",
+    "protractor": "~7.0.0",
+    "tailwindcss": "^2.2.15",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.1.5"
+[/if]
+[if aGenerator.microservice.front.security <> SecurityType::MSAL]
+    "@angular-devkit/build-angular": "~0.1102.13",
+    "@angular/cli": "~11.2.14",
+    "@angular/compiler-cli": "~11.2.14",
+    "@types/jasmine": "~3.6.0",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~6.1.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.5.0",
+    "protractor": "~7.0.0",
+    "tailwindcss": "^2.2.15",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.1.5"
+[/if]
+  }
+}
+[/file]
+
+
+
+[file (getFrontName(aGenerator,aGenerator.microservice.front.name).concat('/Dockerfile'), false)]
+FROM nginx:alpine
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
+WORKDIR /usr/share/nginx/html
+COPY dist /usr/share/nginx/html/
+
+RUN echo $(ls -1 /usr/share/nginx/html/)      
+
+[if aGenerator.microservice.front.security <> SecurityType::MSAL]
+RUN echo "mainFileName=\"\$(ls /usr/share/nginx/html/main*.js)\" && \
+          envsubst '\$API_URL,\$VERSION ' < \${mainFileName} > main.tmp && \
+          mv main.tmp  \${mainFileName} && \ 
+          nginx -g 'daemon off;'" > run.sh   
+[/if]
+[if aGenerator.microservice.front.security = SecurityType::MSAL]
+RUN echo "mainFileName=\"\$(ls /usr/share/nginx/html/main-es5*.js)\" && \
+          envsubst '\$API_URL,\$VERSION,\$CLIENT_ID,\$AUTHORITY_TENANT,\$REDIRECT_URI,\$GRAPH_ENDPOINT,\$AD_ADMIN_ROLE,\$LOGOUT_URI ' < \${mainFileName} > main.tmp && \
+          mv main.tmp  \${mainFileName} && \
+          mainFileName2=\"\$(ls /usr/share/nginx/html/main-es2015*.js)\" && \
+          envsubst '\$API_URL,\$VERSION,\$CLIENT_ID,\$AUTHORITY_TENANT,\$REDIRECT_URI,\$GRAPH_ENDPOINT,\$AD_ADMIN_ROLE,\$LOGOUT_URI ' < \${mainFileName2} > main2.tmp && \
+          mv main2.tmp  \${mainFileName2} && \
+          nginx -g 'daemon off;'" > run.sh
+[/if]
+
+#RUN echo "nginx -g 'daemon off;'" > run.sh
+ENTRYPOINT ['['/]"sh", "run.sh"[']'/]
+[/file]
+
+
 
 [/if]
 
