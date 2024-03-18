@@ -1,0 +1,16 @@
+<div class="overlay">
+    <div class="contentPopup">
+        <div class="popup">
+            <a class="close" (click)="onCancelClick()">&times;</a>
+            <div class="content">
+                <div class="{{type}}"></div>
+                <h2>{{tittle}}</h2>
+                <p>{{message}}</p>
+                <div class="contentButton">
+                    <button class="button1" (click)="onOkClick()" type="button">Si, aceptar</button>
+                    <button class="button2" (click)="onCancelClick()" type="button">No, cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
